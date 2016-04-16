@@ -1,0 +1,52 @@
+{
+	"name" : "Українська",
+	"code" : "uk",
+	"version" : "0.6",
+	"text" : {
+		"ICD" : "МКХ",
+		"menu" : {
+			"Menu" : "Меню",
+			"Home" : "Головна",
+			"Feedback" : "Відгуки",
+			"About" : "Про",
+			"License" : "Ліцензія",
+			"Donate" : "Допомога",
+			"Language" : "Мова",
+			"Settings" : "Налаштування",
+			"Clear_All" : "Очистити БД"
+		},
+		"titles" : {
+			"Catalog" : "Каталог",
+			"Selects" : "Код",
+			"Searching" : "Пошук",
+			"Search" : "Пошук",
+			"Fast_Searching" : "Швидкий пошук" ,
+			"Autocomplete" : "Автозаповнення"
+		},
+		"catalog" : {
+			"Classes" : "Класи",
+			"Blocks" : "Блоки",
+			"Nosologies" : "Нозології",
+			"Diagnoses" : "Діагнози"
+		},
+		"button" : {
+			"Search" : "Пошук",
+			"Diagnoses" : "Діагнози",
+			"Nosologies" : "Нозології",
+			"Complete" : "Разом",
+			"Clear" : "Очистити"
+		},
+		"text" : {
+			"Choose_letter" : "Оберіть літеру",
+			"Choose_number" : "Оберіть першу та другу цифри числа",
+			"Text_input" : "Текст пошуку"
+		},
+		"modal" : {
+			"Download" : "Завантажити",
+			"Dismiss" : "Відхилити",
+			"Update" : "Оновлення",
+			"Laguage" : "\"Мова\" - оновлення доступне для завантаження",
+			"DB" : "База Даних \"МКХ-10\" - оновлення доступне для завантаження"
+		}
+	}
+}

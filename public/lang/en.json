@@ -1,0 +1,52 @@
+{
+	"name" : "English",
+	"code" : "en",
+	"version" : "0.6",
+	"text" : {
+		"ICD" : "ICD",
+		"menu" : {
+			"Menu" : "Menu",
+			"Home" : "Home",
+			"Feedback" : "Feedback",
+			"About" : "About",
+			"License" : "License",
+			"Donate" : "Donate",
+			"Language" : "Language",
+			"Settings" : "Settings",
+			"Clear_All" : "Clear DB"
+		},
+		"titles" : {
+			"Catalog" : "Catalog",
+			"Selects" : "Selects",
+			"Searching" : "Searching",
+			"Search" : "Search",
+			"Fast_Searching" : "Fast Searching" ,
+			"Autocomplete" : "Autocomplete"
+		},
+		"catalog" : {
+			"Classes" : "Classes",
+			"Blocks" : "Blocks",
+			"Nosologies" : "Nosologies",
+			"Diagnoses" : "Diagnoses"
+		},
+		"button" : {
+			"Search" : "Search",
+			"Diagnoses" : "Diagnoses",
+			"Nosologies" : "Nosologies",
+			"Complete" : "Complete",
+			"Clear" : "Clear"
+		},
+		"text" : {
+			"Choose_letter" : "Choose letter",
+			"Choose_number" : "Chose first and second digit number",
+			"Text_input" : "Search text"
+		},
+		"modal" : {
+			"Download" : "Download",
+			"Dismiss" : "Dismiss",
+			"Update" : "Update",
+			"Laguage" : "\"Laguage\" - update is available for downloading",
+			"DB" : "Data Base \"ICD-10\" - update is available for downloading"
+		}
+	}
+}

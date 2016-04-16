@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html style="overflow-x: hidden;"><head lang="uk">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+	@charset "UTF-8";
+	[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}
+	ng\:form{display:block;}
+	.ng-animate-start{border-spacing:1px 1px;-ms-zoom:1.0001;}
+	.ng-animate-active{border-spacing:0px 0px;-ms-zoom:1;}</style>
+	<meta charset="UTF-8">
+	<title>МКХ 10 - Міжнародна Класифікація Хвороб (МКБ 10)</title>
+	
+	<meta name="Keywords" content="МКХ 10,МКБ 10,Коди МКХ,МКБ,Шифр МКХ-10,Міжнародна Класифікація Хвороб,Классификация Заболеваний,МКБ 10 онлайн,українською">
+	<meta name="description" content="Електроннй довідник МКХ 10, Электронный справочник МКБ 10, Полная база классификации болезней, Скачать базу МКБ, Скачати базу МКХ">
+	<script src="./Scripts/js/jquery-2.1.3.min.js"></script>
+	<style type="text/css"></style>
+	<script type="text/javascript" src="./Scripts/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./Scripts/js/transition.js"></script>
+	<link href="./Content/slide.css" rel="stylesheet">
+	<script type="text/javascript" src="./Scripts/js/dropdown.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="./Content/css/dropdown.min.css">
+	<link rel="stylesheet" type="text/css" href="./Content/css/transition.css">
+	<link rel="stylesheet" type="text/css" href="./../public/libs/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./Content/css/main.css">
+	<link rel="icon" href="../public/img/favicon.ico">
+	<!-- <link href="./Content/css.css" rel="stylesheet" type="text/css"> -->
+</head>
+<body ng-app="mkh10" ng-controller="GlobalCtr" style="overflow-x: hidden;" class="ng-scope">
+
+
+
+	<div class="header">
+
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="header2">
+					<div class="col-md-8" itemscope itemtype="http://schema.org/Product">
+						<a itemprop="url" href="../" >
+							<img src="../public/img/mkh.jpg" class="pull-left" height="80" alt="МКХ 10 - Міжнародна класифікація хвороб" itemprop="logo">
+							<h1 itemprop="name">МКХ 10 - Міжнародна класифікація хвороб</h1>
+						</a>
+					</div>
+					<div class="col-md-3">
+						<input class="search form-control ng-pristine ng-valid" ng-change="getResult()" ng-model="globalText" placeholder="Пошук">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="line clearfix">
+					<div class="col-md-12">
+						<ul class="blocks-links">
+							<li>
+								<a href="../../web">
+									<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+									<span>Початок</span>
+								</a>
+							</li>
+							<!-- ngRepeat: item in siteMap track by $index -->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="container">
+			<div class="col-xs-12 ">
+				<div class="row" style="overflow-x: hidden">
+					<!-- ngView:  --><div ng-view="" class="slide-right blocks_container ng-scope"><div ng-controller="ClassesCtr" class="active_el one-block top20 animated slideInRight ng-scope" style="width: 1140px;">
+	<!-- ngIf: if -->
+	<!-- ngIf: !if --><div ng-if="!if" class="col-borders ng-scope">
+		<ul class="nav nav-pills nav-stacked">
+			<!-- ngRepeat: item in classes track by $index --><li ng-repeat="item in classes track by $index" role="presentation" class="ng-scope">
+				<a ng-href="#!/blocks/1" ng-click="addSiteMap($index)" class="class_link ng-binding" moveto=".header" href="http://medinfo.in.ua/#!/blocks/1">
+					<div class="clearfix">
+						<div class="illness_class">
+							<span class="ng-binding">1</span>
+						</div>
+						<div class="illness_code">
+							<span class="ng-binding">(A00 — B99)</span>
+						</div>
+					</div>
+					Деякі інфекційні та паразитарні хвороби
+				</a>
+			</li><!-- end ngRepeat: item in classes track by $index --><li ng-repeat="item in classes track by $index" role="presentation" class="ng-scope">
+				<a ng-href="#!/blocks/2" ng-click="addSiteMap($index)" class="class_link ng-binding" moveto=".header" href="http://medinfo.in.ua/#!/blocks/2">
+					<div class="clearfix">
+						<div class="illness_class">
+							<span class="ng-binding">2</span>
+						</div>
+						<div class="illness_code">
+							<span class="ng-binding">(C00 — D48)</span>
+						</div>
+					</div>
+					Новоутворення
+				</a>
+			</li><!-- end ngRepeat: item in classes track by $index --><li ng-repeat="item in classes track by $index" role="presentation" class="ng-scope">
+				<a ng-href="#!/blocks/3" ng-click="addSiteMap($index)" class="class_link ng-binding" moveto=".header" href="http://medinfo.in.ua/#!/blocks/3">
+					<div class="clearfix">
+						<div class="illness_class">
+							<span class="ng-binding">3</span>
+						</div>
+						<div class="illness_code">
+							<span class="ng-binding">(D50 — D89)</span>
+						</div>
+					</div>
+					Хвороби крові і кровотворних органів та окремі порушення з залученням імунного механізму
+				</a>
+			</li><!-- end ngRepeat: item in classes track by $index --><li ng-repeat="item in classes track by $index" role="presentation" class="ng-scope">
+				<a ng-href="#!/blocks/4" ng-click="addSiteMap($index)" class="class_link ng-binding" moveto=".header" href="http://medinfo.in.ua/#!/blocks/4">
+					<div class="clearfix">
+						<div class="illness_class">
+							<span class="ng-binding">4</span>
+						</div>
+						<div class="illness_code">
+							<span class="ng-binding">(E00 — E90)</span>
+						</div>
+					</div>
+					Хвороби ендокринної системи, розладу харчування та порушення обміну речовин
+				</a>
+			</li><!-- end ngRepeat: item in classes track by $index --><li ng-repeat="item in classes track by $index" role="presentation" class="ng-scope">
+				<a ng-href="#!/blocks/5" ng-click="addSiteMap($index)" class="class_link ng-binding" moveto=".header" href="http://medinfo.in.ua/#!/blocks/5">
+					<div class="clearfix">
+						<div class="illness_class">
+							<span class="ng-binding">5</span>
+						</div>
+						<div class="illness_code">
+							<span class="ng-binding">(F00 — F99)</span>
+						</div>
+					</div>
+					Розлади психіки та поведінки
+				</a>
+			</li><!-- end ngRepeat: item in classes track by $index --><li ng-repeat="item in classes track by $index" role="presentation" class="ng-scope">
+				<a ng-href="#!/blocks/6" ng-click="addSiteMap($index)" class="class_link ng-binding" moveto=".header" href="http://medinfo.in.ua/#!/blocks/6">
+					<div class="clearfix">
+						<div class="illness_class">
+							<span class="ng-binding">6</span>
+						</div>
+						<div class="illness_code">
+							<span class="ng-binding">(G00 — G99)</span>
+						</div>
+					</div>
+					Хвороби нервової системи
+				</a>
+			</li><!-- end ngRepeat: item in classes track by $index --><li ng-repeat="item in classes track by $index" role="presentation" class="ng-scope">
+				<a ng-href="#!/blocks/7" ng-click="addSiteMap($index)" class="class_link ng-binding" moveto=".header" href="http://medinfo.in.ua/#!/blocks/7">
+					<div class="clearfix">
+						<div class="illness_class">
+							<span class="ng-binding">7</span>
+						</div>
+						<div class="illness_code">
+							<span class="ng-binding">(H00 — H59)</span>
+						</div>
+					</div>
+					Хвороби ока та придаткового апарату
+				</a>
+			</li><!-- end ngRepeat: item in classes track by $index --><li ng-repeat="item in classes track by $index" role="presentation" class="ng-scope">
+				<a ng-href="#!/blocks/8" ng-click="addSiteMap($index)" class="class_link ng-binding" moveto=".header" href="http://medinfo.in.ua/#!/blocks/8">
+					<div class="clearfix">
+						<div class="illness_class">
+							<span class="ng-binding">8</span>
+						</div>
+						<div class="illness_code">
+							<span class="ng-binding">(H60 — H95)</span>
+						</div>
+					</div>
+					Хвороби вуха та соскоподібного відростка
+				</a>
+			</li><!-- end ngRepeat: item in classes track by $index --><li ng-repeat="item in classes track by $index" role="presentation" class="ng-scope">
+				<a ng-href="#!/blocks/9" ng-click="addSiteMap($index)" class="class_link ng-binding" moveto=".header" href="http://medinfo.in.ua/#!/blocks/9">
+					<div class="clearfix">
+						<div class="illness_class">
+							<span class="ng-binding">9</span>
+						</div>
+						<div class="illness_code">
+							<span class="ng-binding">(I00 — I99)</span>
+						</div>
+					</div>
+					Хвороби системи кровообігу
+				</a>
+			</li><!-- end ngRepeat: item in classes track by $index --><li ng-repeat="item in classes track by $index" role="presentation" class="ng-scope">
+				<a ng-href="#!/blocks/10" ng-click="addSiteMap($index)" class="class_link ng-binding" moveto=".header" href="http://medinfo.in.ua/#!/blocks/10">
+					<div class="clearfix">
+						<div class="illness_class">
+							<span class="ng-binding">10</span>
+						</div>
+						<div class="illness_code">
+							<span class="ng-binding">(J00 — J99)</span>
+						</div>
+					</div>
+					Хвороби системи дихання
+				</a>
+			</li><!-- end ngRepeat: item in classes track by $index --><li ng-repeat="item in classes track by $index" role="presentation" class="ng-scope">
+				<a ng-href="#!/blocks/11" ng-click="addSiteMap($index)" class="class_link ng-binding" moveto=".header" href="http://medinfo.in.ua/#!/blocks/11">
+					<div class="clearfix">
+						<div class="illness_class">
+							<span class="ng-binding">11</span>
+						</div>
+						<div class="illness_code">
+							<span class="ng-binding">(K00 — K93)</span>
+						</div>
+					</div>
+					Хвороби органів травлення
+				</a>
+			</li><!-- end ngRepeat: item in classes track by $index --><li ng-repeat="item in classes track by $index" role="presentation" class="ng-scope">
+				<a ng-href="#!/blocks/12" ng-click="addSiteMap($index)" class="class_link ng-binding" moveto=".header" href="http://medinfo.in.ua/#!/blocks/12">
+					<div class="clearfix">
+						<div class="illness_class">
+							<span class="ng-binding">12</span>
+						</div>
+						<div class="illness_code">
+							<span class="ng-binding">(L00 — L99)</span>
+						</div>
+					</div>
+					Хвороби шкіри та підшкірної клітковини
+				</a>
+			</li><!-- end ngRepeat: item in classes track by $index --><li ng-repeat="item in classes track by $index" role="presentation" class="ng-scope">
+				<a ng-href="#!/blocks/13" ng-click="addSiteMap($index)" class="class_link ng-binding" moveto=".header" href="http://medinfo.in.ua/#!/blocks/13">
+					<div class="clearfix">
+						<div class="illness_class">
+							<span class="ng-binding">13</span>
+						</div>
+						<div class="illness_code">
+							<span class="ng-binding">(M00 — M99)</span>
+						</div>
+					</div>
+					Хвороби кістково-м'язової системи та сполучної тканини
+				</a>
+			</li><!-- end ngRepeat: item in classes track by $index --><li ng-repeat="item in classes track by $index" role="presentation" class="ng-scope">
+				<a ng-href="#!/blocks/14" ng-click="addSiteMap($index)" class="class_link ng-binding" moveto=".header" href="http://medinfo.in.ua/#!/blocks/14">
+					<div class="clearfix">
+						<div class="illness_class">
+							<span class="ng-binding">14</span>
+						</div>
+						<div class="illness_code">
+							<span class="ng-binding">(N00 — N99)</span>
+						</div>
+					</div>
+					Хвороби сечостатевої системи
+				</a>
+			</li><!-- end ngRepeat: item in classes track by $index --><li ng-repeat="item in classes track by $index" role="presentation" class="ng-scope">
+				<a ng-href="#!/blocks/15" ng-click="addSiteMap($index)" class="class_link ng-binding" moveto=".header" href="http://medinfo.in.ua/#!/blocks/15">
+					<div class="clearfix">
+						<div class="illness_class">
+							<span class="ng-binding">15</span>
+						</div>
+						<div class="illness_code">
+							<span class="ng-binding">(O00 — O99)</span>
+						</div>
+					</div>
+					Вагітність, пологи та післяпологовий період
+				</a>
+			</li><!-- end ngRepeat: item in classes track by $index --><li ng-repeat="item in classes track by $index" role="presentation" class="ng-scope">
+				<a ng-href="#!/blocks/16" ng-click="addSiteMap($index)" class="class_link ng-binding" moveto=".header" href="http://medinfo.in.ua/#!/blocks/16">
+					<div class="clearfix">
+						<div class="illness_class">
+							<span class="ng-binding">16</span>
+						</div>
+						<div class="illness_code">
+							<span class="ng-binding">(P00 — P96)</span>
+						</div>
+					</div>
+					Окремі стани, що виникають в перинатальному періоді
+				</a>
+			</li><!-- end ngRepeat: item in classes track by $index --><li ng-repeat="item in classes track by $index" role="presentation" class="ng-scope">
+				<a ng-href="#!/blocks/17" ng-click="addSiteMap($index)" class="class_link ng-binding" moveto=".header" href="http://medinfo.in.ua/#!/blocks/17">
+					<div class="clearfix">
+						<div class="illness_class">
+							<span class="ng-binding">17</span>
+						</div>
+						<div class="illness_code">
+							<span class="ng-binding">(Q00 — Q99)</span>
+						</div>
+					</div>
+					Вроджені вади розвитку, деформації та хромосомної аномалії
+				</a>
+			</li><!-- end ngRepeat: item in classes track by $index --><li ng-repeat="item in classes track by $index" role="presentation" class="ng-scope">
+				<a ng-href="#!/blocks/18" ng-click="addSiteMap($index)" class="class_link ng-binding" moveto=".header" href="http://medinfo.in.ua/#!/blocks/18">
+					<div class="clearfix">
+						<div class="illness_class">
+							<span class="ng-binding">18</span>
+						</div>
+						<div class="illness_code">
+							<span class="ng-binding">(R00 — R99)</span>
+						</div>
+					</div>
+					Симптоми, ознаки та відхилення від норми, що виявлені при лабораторних та клінічних дослідженнях, не класифіковані в інших рубриках
+				</a>
+			</li><!-- end ngRepeat: item in classes track by $index --><li ng-repeat="item in classes track by $index" role="presentation" class="ng-scope">
+				<a ng-href="#!/blocks/19" ng-click="addSiteMap($index)" class="class_link ng-binding" moveto=".header" href="http://medinfo.in.ua/#!/blocks/19">
+					<div class="clearfix">
+						<div class="illness_class">
+							<span class="ng-binding">19</span>
+						</div>
+						<div class="illness_code">
+							<span class="ng-binding">(S00 — T98)</span>
+						</div>
+					</div>
+					Травми, отруєння та деякі інші наслідки дії зовнішніх причин
+				</a>
+			</li><!-- end ngRepeat: item in classes track by $index --><li ng-repeat="item in classes track by $index" role="presentation" class="ng-scope">
+				<a ng-href="#!/blocks/20" ng-click="addSiteMap($index)" class="class_link ng-binding" moveto=".header" href="http://medinfo.in.ua/#!/blocks/20">
+					<div class="clearfix">
+						<div class="illness_class">
+							<span class="ng-binding">20</span>
+						</div>
+						<div class="illness_code">
+							<span class="ng-binding">(V01 — Y98)</span>
+						</div>
+					</div>
+					Зовнішні причини захворюваності та смертності
+				</a>
+			</li><!-- end ngRepeat: item in classes track by $index --><li ng-repeat="item in classes track by $index" role="presentation" class="ng-scope">
+				<a ng-href="#!/blocks/21" ng-click="addSiteMap($index)" class="class_link ng-binding" moveto=".header" href="http://medinfo.in.ua/#!/blocks/21">
+					<div class="clearfix">
+						<div class="illness_class">
+							<span class="ng-binding">21</span>
+						</div>
+						<div class="illness_code">
+							<span class="ng-binding">(Z00 — Z99)</span>
+						</div>
+					</div>
+					Фактори, що впливають на стан здоров'я населення та звертання до закладів охорони здоров'я
+				</a>
+			</li><!-- end ngRepeat: item in classes track by $index --><li ng-repeat="item in classes track by $index" role="presentation" class="ng-scope">
+				<a ng-href="#!/blocks/22" ng-click="addSiteMap($index)" class="class_link ng-binding" moveto=".header" href="http://medinfo.in.ua/#!/blocks/22">
+					<div class="clearfix">
+						<div class="illness_class">
+							<span class="ng-binding">22</span>
+						</div>
+						<div class="illness_code">
+							<span class="ng-binding">(U00 — U99)</span>
+						</div>
+					</div>
+					Коди для спеціальних цілей
+				</a>
+			</li><!-- end ngRepeat: item in classes track by $index -->
+		</ul>
+	</div><!-- end ngIf: !if -->
+</div></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="footer2 text-center">
+					Сайт зроблено на основі <a class="footer-link" href="http://mkh10.com.ua/">mkh10.com.ua</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="./Scripts/MyScripts/js-for-startPage.js"></script>
+	<script src="./Scripts/vendor/angular.min.js"></script>
+	<script src="./Scripts/vendor/angular-animate.min.js"></script>
+	<script src="./Scripts/vendor/angular-route.min.js"></script>
+	<script src="./Scripts/app.js"></script>
+	<script src="./Scripts/controllers.js"></script>
+
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter31511993 = new Ya.Metrika({ id:31511993, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="https://mc.yandex.ru/watch/31511993" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-65328404-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</body></html>

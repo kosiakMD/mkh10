@@ -1,0 +1,29 @@
+{
+	"APP" : "0.0.4",
+	"ICD" : {
+		"uk" : {
+			"code" : "uk",
+			"name" : "українська",
+			"version" : "0.1.0"
+		},
+		"ru" : {
+			"code" : "ru",
+			"name" : "русский",
+			"version" : "0.0.0"
+		}
+	},
+	"Lang" : {
+		"uk" : {
+			"name" : "українська",
+			"version" : "0.6"
+		},
+		"ru" : {
+			"name" : "русский",
+			"version" : "0.8"
+		},
+		"en" : {
+			"name" : "english",
+			"version" : "0.6"
+		}
+	}
+}

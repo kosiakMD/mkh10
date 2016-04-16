@@ -1,0 +1,55 @@
+body {padding-top:50px}
+textarea{resize:none;min-height:80px}
+.input-group {margin-bottom:15px}
+.sub-header {padding-bottom:10px;border-bottom:1px solid #eee}
+.navbar-right{padding-right:20px}
+.thumbnail{padding:25px 0 15px 0}
+.thumbnail a{color:#333333}
+a.navbar-brand{color:#ffffff !important}
+.sidebar {display:none;}
+@media(min-width:768px){.sidebar {position:fixed;top:51px;bottom:0;left:0;z-index:1000;display:block;/*padding:20px;*/overflow-x:hidden;overflow-y:auto;background-color:#f5f5f5;border-right:1px solid #D4D4D4}}
+.nav-sidebar {margin-right:-21px;margin-left:-20px}
+.nav-sidebar > li > a {padding-right:20px;padding-left:20px}
+.nav-sidebar > li > a[data-toggle="collapse"]{color:#555555;background-color:#e7e7e7}
+div.panel-collapse > li > a {padding:10px 20px 10px 20px;position:relative;display:block}
+div.panel-collapse > li > a:hover{background-color:#eeeeee;text-decoration:none}
+div.panel-collapse > .active{color:#555555;background-color:#e7e7e7}
+ul.nav > li > a{cursor:pointer}
+.nav-sidebar > .active > a, .nav-sidebar > .active > a:hover {color:#fff;background-color:#428bca}
+.main {padding:20px 20px 60px 20px}
+@media(min-width:768px){.main {padding-right:40px;padding-left:40px;padding-bottom:60px}}
+.main .page-header {margin-top:0}
+.placeholders {margin-bottom:15px;text-align:center}
+.placeholders a{text-decoration:none}
+.placeholders .thumbnail:hover{border:#428bca 1px solid;cursor:pointer}
+.placeholders .thumbnail:hover a{color:#428bca}
+#editor{width:100%}
+#footer {text-align:right;position:fixed;left:0;right:0;bottom:0;width:auto;padding:10px;height:40px;background-color:#f5f5f5;border-top:#D4D4D4 1px solid}
+span.diff{cursor:pointer;border-bottom:#000000 1px dotted}
+#main-tab{padding-top:25px}
+.table.borderless td{border:none}
+.table.borderless th{border:none;border-bottom:#D4D4D4 1px solid !important;text-align:center}
+#ChmodTable{margin-top:25px}
+#UploadErrors,#PageMessage{margin:5px 0 15px 0}
+.syntaxhighlighter {height:500px;overflow-y:auto !important;overflow-x:auto !important}
+h2{padding-top:25px}
+input.datepicker[readonly], .input-daterange > input.start[readonly],input.end[readonly]{background-color:#ffffff !important;padding-left:15px}
+#nav-login .popover{max-height:75px;min-width:430px}
+*:focus{outline:0 !important}
+.se-pre-con {position:fixed;left:0px;top:0px;width:100%;height:100%;z-index:9999;background:url(../img/preloader.gif) center no-repeat #191f26}
+#up_scroller{float:right;margin-left:15px}
+.php-ext{cursor:help}
+.input-group-addon .fa {width:1em;text-align:center}
+.input-group-addon input{vertical-align:middle}
+.label-as-badge {border-radius:1em}
+/*.divider{width:100%;border:#c9c9c9 1px dashed;margin:10px 0 10px 0}*/
+.message{text-align:left;margin:10px 0 10px 0}
+#MessagesPreloader{position:fixed;top:50%;left:50%;height:50px;width:50px;margin-left:75px}
+ul.nav.nav-tabs > li:not(.active) > a{border:0;margin:1px}
+ul.dropdown-menu > li > a:hover{background-color:#428bca;color:#ffffff}
+.readonly{background-color:#ffffff !important;padding-left:15px !important}
+#CompactMenu ul{margin-left:-32px;list-style:none;position:fixed;top:50px;bottom:30px;left:0;z-index:1000;display:block;/*padding:20px;*/overflow-x:hidden;overflow-y:auto;background-color:#474747;}
+#CompactMenu ul li{text-align:center;margin-left:-8px;border-top:#9C9C9C 1px solid;padding:4px 3px 2px 3px;}
+#CompactMenu ul li:hover{border-top: #1F1F1F 1px solid;background-color:#1F1F1F;}
+#CompactMenu ul li a{color:#ffffff}
+#CompactMenuToggle{height:50px;width:39px;margin:0 15px 0 -15px;border:0;background-color:#242B2E;color:#ffffff;}

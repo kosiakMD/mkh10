@@ -1,0 +1,15 @@
+{
+    "name": "kel/mkh",
+    "description": "icd 10",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kosiak Anton",
+            "email": "keleborn.mail@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+		"querypath/QueryPath": ">=3.0.0"
+	}
+}

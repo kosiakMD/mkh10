@@ -1,0 +1,24 @@
+2016-02-05 17:26:26 Помилка #256: `Помилка в запиті: Table 'powertext.pwt_staff' doesn't exist` в файлі G:\Apache24\root\localhost\www\clean\lib\mysqli.lib.php, стрічка 24.
+2016-02-06 23:22:34 Помилка #256: `Помилка з'єднання з БД: Access denied for user 'root'@'localhost' (using password: YES)` в файлі W:\domains\mkh10\adm\lib\mysqli.lib.php, стрічка 12.
+2016-02-06 23:38:24 Помилка #256: `Помилка в запиті: Table 'icd10.pages' doesn't exist` в файлі W:\domains\mkh10\adm\lib\mysqli.lib.php, стрічка 24.
+2016-02-06 23:40:35 Помилка #256: `Помилка в запиті: Table 'icd10.pages' doesn't exist` в файлі W:\domains\mkh10\adm\lib\mysqli.lib.php, стрічка 24.
+2016-02-06 23:44:02 Помилка #256: `Помилка в запиті: Table 'icd10.pages' doesn't exist` в файлі W:\domains\mkh10\adm\lib\mysqli.lib.php, стрічка 24.
+2016-02-06 23:44:25 Помилка #256: `Помилка в запиті: Table 'icd10.pages' doesn't exist` в файлі W:\domains\mkh10\adm\lib\mysqli.lib.php, стрічка 24.
+2016-02-06 23:45:02 Помилка #256: `Помилка в запиті: Table 'icd10.pages' doesn't exist` в файлі W:\domains\mkh10\adm\lib\mysqli.lib.php, стрічка 24.
+2016-02-06 23:45:04 Помилка #256: `Помилка в запиті: Table 'icd10.pages' doesn't exist` в файлі W:\domains\mkh10\adm\lib\mysqli.lib.php, стрічка 24.
+2016-02-06 23:45:07 Помилка #256: `Помилка в запиті: Table 'icd10.pages' doesn't exist` в файлі W:\domains\mkh10\adm\lib\mysqli.lib.php, стрічка 24.
+2016-02-06 23:46:25 Помилка #256: `Помилка в запиті: Table 'icd10.pages' doesn't exist` в файлі W:\domains\mkh10\adm\lib\mysqli.lib.php, стрічка 24.
+2016-02-07 04:00:20 Помилка #256: `Module "icd10" not found!` в файлі W:\domains\mkh10\admin\index.php, стрічка 46.
+2016-02-07 04:01:49 Помилка #256: `Module "icd10" not found!` в файлі W:\domains\mkh10\admin\index.php, стрічка 46.
+2016-02-07 04:02:02 Помилка #256: `Module "icd10.db.mod" not found!` в файлі W:\domains\mkh10\admin\index.php, стрічка 46.
+2016-02-07 04:02:09 Помилка #256: `Module "icd10.db.mod" not found!` в файлі W:\domains\mkh10\admin\index.php, стрічка 46.
+2016-02-07 04:02:51 Помилка #256: `Module "icd10.db.mod" not found!` в файлі W:\domains\mkh10\admin\index.php, стрічка 46.
+2016-02-07 04:05:08 Помилка #256: `Module "icd10" not found!` в файлі W:\domains\mkh10\admin\index.php, стрічка 46.
+2016-02-07 04:05:10 Помилка #256: `Module "icd10" not found!` в файлі W:\domains\mkh10\admin\index.php, стрічка 46.
+2016-02-07 04:06:32 Помилка #256: `Module "icd10" not found!` в файлі W:\domains\mkh10\admin\index.php, стрічка 46.
+2016-02-07 04:09:01 Помилка #256: `Module "icd10" not found!` в файлі W:\domains\mkh10\admin\index.php, стрічка 46.
+2016-02-07 04:10:20 Помилка #256: `Module "icd10" not found!` в файлі W:\domains\mkh10\admin\index.php, стрічка 46.
+2016-02-07 22:49:41 Помилка #256: `Помилка з'єднання з БД: ����������� �� �����������, �.�. �������� ��������� ������ ������ �� �����������.
+` в файлі W:\domains\mkh10\admin\lib\mysqli.lib.php, стрічка 12.
+2016-02-07 22:50:44 Помилка #256: `Помилка з'єднання з БД: ����������� �� �����������, �.�. �������� ��������� ������ ������ �� �����������.
+` в файлі W:\domains\mkh10\admin\lib\mysqli.lib.php, стрічка 12.

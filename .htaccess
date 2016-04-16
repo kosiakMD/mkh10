@@ -1,0 +1,50 @@
+AddDefaultCharset UTF-8
+
+RewriteEngine On
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteRule ^([^/\.]+)$ $1.html [NC,L]
+#RewriteRule ^(.*)\.php$ $1\/? [R=301,L]
+#RewriteRule ^(.*)$ $1 [L]
+	RewriteCond %{REQUEST_FILENAME} -s [OR]
+	RewriteCond %{REQUEST_FILENAME} -l [OR]
+	RewriteCond %{REQUEST_FILENAME} -d
+	RewriteRule ^.*$ - [NC,L]
+
+# Main:
+	RewriteRule ^(.*) /index.html [NC,L]
+	RewriteRule ^mkn10(.*) /mkn10/index.html [NC,L]
+
+# HTTPS://
+#RewriteEngine On
+#RewriteCond %{HTTPS} off
+#RewriteRule (.*) https://%{SERVER_NAME}/%$1 [R,L]
+
+# Do not remove this line or mod_rewrite rules and search engine friendly URLs will stop working
+# Archives:
+	RewriteBase /
+	AddOutputFilterByType DEFLATE text/plain
+	AddOutputFilterByType DEFLATE text/html
+	AddOutputFilterByType DEFLATE text/xml
+	AddOutputFilterByType DEFLATE text/css
+	AddOutputFilterByType DEFLATE application/xml
+	AddOutputFilterByType DEFLATE application/xhtml+xml
+	AddOutputFilterByType DEFLATE application/rss+xml
+	AddOutputFilterByType DEFLATE application/javascript
+	AddOutputFilterByType DEFLATE application/x-javascript
+	AddOutputFilterByType DEFLATE application/javascript
+	AddOutputFilterByType DEFLATE application/js
+	AddOutputFilterByType DEFLATE image/png
+	AddOutputFilterByType DEFLATE image/gif
+	AddOutputFilterByType DEFLATE image/jpg
+	AddOutputFilterByType DEFLATE image/jpeg
+	AddOutputFilterByType DEFLATE image/vnd.microsoft.icon
+	AddOutputFilterByType DEFLATE application/json
+	AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
+	AddOutputFilterByType DEFLATE application/xhtml+xml application/rss+xml application/atom+xml
+	AddOutputFilterByType DEFLATE image/x-icon image/svg+xml application/vnd.ms-fontobject application/x-font-ttf font/opentype
+	AddOutputFilterByType DEFLATE x-font/otf .otf
+	AddOutputFilterByType DEFLATE x-font/ttf .ttf
+	AddOutputFilterByType DEFLATE x-font/eot .eot
+	AddOutputFilterByType DEFLATE x-font/woff .woff
+	AddOutputFilterByType DEFLATE image/x-icon .ico
+	AddOutputFilterByType DEFLATE image/png .png

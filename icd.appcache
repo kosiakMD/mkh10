@@ -1,0 +1,56 @@
+CACHE MANIFEST
+#VERSION 0.1.4z
+
+#Cache files:
+/index.html
+/views/index.html
+/views/donate.html
+/views/about.html
+
+#/public/libs/bootstrap/css/bootstrap.min.css
+/public/css/spacelab.min.css
+/public/libs/jasny-bootstrap/css/jasny-bootstrap.min.css
+#/public/css/style.css
+/public/css/style.min.css
+
+#/public/js/icd.js
+/public/js/icd.min.js
+/public/js/vendor/jquery-1.11.3.min.js
+#/public/js/plugins/router.min.js
+#/public/js/plugins/jquery.router.js
+#/public/js/vendor/angular-1.4.3.min.js
+#/public/js/vendor/angular-route.min.js
+/public/libs/bootstrap/js/bootstrap.min.js
+/public/libs/jqui/jquery-ui.min.js
+/public/libs/jasny-bootstrap/js/jasny-bootstrap.min.js
+
+/public/img/favicon.ico
+/public/img/license.png
+#/public/img/loading.gif
+#/public/img/who.png
+/public/img/fb.png
+#/public/img/facebook.jpg
+/public/img/vk.png
+#/public/img/vki.png
+/public/img/tw.png
+/public/img/in.png
+/public/img/mkh.jpg
+
+/public/fonts/glyphicons-halflings-regular.woff
+/public/fonts/glyphicons-halflings-regular.ttf
+
+NETWORK:
+*
+/public/db/count.json
+/public/db/classes.json
+/public/db/blocks.json
+/public/db/nosologies.json 
+/public/db/diagnoses.json
+
+/public/version.json
+/public/lang/uk.json
+/public/lang/ru.json
+/public/lang/en.json
+
+FALLBACK:
+#/ /offline.html

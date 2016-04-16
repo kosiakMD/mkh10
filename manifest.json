@@ -1,0 +1,27 @@
+{
+	"lang": "uk",
+	"short_name": "МКХ 10",
+	"name": "МКХ 10 - Веб-додаток Міжнродна Класифікація Хвороб 10",
+	"icons": [
+		{
+			"src": "public/image/apple-touch-icon-114x114.png",
+			"sizes": "96x96",
+			"type": "image/png"
+		},
+		{
+			"src": "public/image/apple-touch-icon-144x144.png",
+			"sizes": "144x144",
+			"type": "image/png"
+		},
+		{
+			"src": "public/image/apple-touch-icon-180x180.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		}
+	],
+	"start_url": "/index.html",
+	"display": "standalone",
+	"orientation": "landscape",
+	"theme_color": "aliceblue",
+	"background_color": "blue"
+}

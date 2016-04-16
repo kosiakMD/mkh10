@@ -1,0 +1,10 @@
+php_value upload_max_filesize 1024M
+Options All -ExecCGI -Indexes -Includes +FollowSymLinks
+DirectoryIndex index.php
+
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !\.(jpg|gif|png|css|js|ttf|eot|svg|woff|txt|ico|pdf|xls)$ [NC]
+RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]

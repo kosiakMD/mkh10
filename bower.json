@@ -1,0 +1,21 @@
+{
+  "name": "mkh10",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Anton Kosiak <Keleborn.mail@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "bootstrap": "^3.3.6"
+  }
+}

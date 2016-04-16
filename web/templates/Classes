@@ -1,0 +1,31 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"></head><body><div ng-controller="ClassesCtr" class="active_el one-block top20 animated slideInRight">
+    <div ng-if="if" class="col-md-12">
+        <div class=" col-borders">
+        <ul class="nav nav-pills nav-stacked">
+            <li ng-repeat="item in result track by $index" role="presentation">
+                    <a ng-click="addSiteMap($index)" href="#!/diagnosis/{{item.ClassId}}">
+                        <span class="ill_code">{{item.From}}</span> {{item.Label}}
+                </a>
+            </li>
+        </ul>
+    </div>
+    </div>
+    <div ng-if="!if" class="col-borders">
+        <ul class="nav nav-pills nav-stacked">
+            <li ng-repeat="item in classes track by $index" role="presentation">
+                <a ng-href="#!/blocks/{{item.ClassId}}" ng-click="addSiteMap($index)" class="class_link" moveto=".header">
+                    <div class="clearfix">
+                        <div class="illness_class">
+                            <span>{{item.ClassId}}</span>
+                        </div>
+                        <div class="illness_code">
+                            <span>({{item.From}} — {{item.To}})</span>
+                        </div>
+                    </div>
+                    {{item.Label}}
+                </a>
+            </li>
+        </ul>
+    </div>
+</div></body></html>

@@ -1,0 +1,35 @@
+#tablewrapper {width:100%;margin:0 auto}
+#tableheader {height:55px}
+#columns{width:200px;float:left;margin-right:7px;}
+.search-form {float:left;}
+.details {float:right;}
+.details div {float:left;margin-left:15px;font-size:12px}
+/*.tinytable {width:100%; border-left:1px solid #c6d5e1; border-top:1px solid #c6d5e1; border-bottom:none}
+.tinytable th {background:url(../img/header-bg.gif); text-align:left; color:#cfdce7; border:1px solid #fff; border-right:none}*/
+.table th h3 {font-weight:bold;font-size:14px;padding:6px 8px 8px}
+.table td {padding:4px 6px 6px;}
+.table .head h3 {background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACeSURBVDhP1ZIhEsQgDEV7p6qqvQOHqMo1cDkKijvgVqHqVlXhonBZUphMzaat3K8YJi+Zn5+JH2p6WM9nIOPcBLGcmtAbncNc9csEakYnPeYFwmcwBrBHWI7ywcRdxhhAJaItrFLuU3vTMePCQ4kgAOZ7Hpj/CZCNUPJicA2bruS3h5J8j6hLs7VMa07OJz0Oe0vcmBf0QIcugDuX+wVT/3HJYcpD2wAAAABJRU5ErkJggg==) 3px 5px no-repeat;cursor:pointer;padding-left:25px}
+/*.table .desc, .sortable .asc {background:url(../img/header-selected-bg.gif)}*/
+.table .desc h3 {background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEISURBVDhPY/z//z8DKYCJFMUgtcga3mzONQGC3sswQy73gvhAkLv5DUwMrw26xWfOnNlUb8nGwAZ3CAEn/bzcm9vOUFnpLkKUDW92lqQfs5rZ4yuF8CleG55fOa6gznZg1uS1lz8TZYNC8MziYCsgUBOGewKvDbwKxhCgK8VOlA2fH5yFgMvPfhKl4cHa9Mlrj+1c0DDrLIYffn7+/Pntr18gc0DMz5+hRupG5qa5KSAlB6gffj7fVeUe3X4WJLMuz9G96sBbiCKgbqg5UE1QDewKwT0zI+XBgmyWlcvgQQ/UDTUHZgswtcLBpzM9QUE9l37ABC71GPdc+v96U07OptcwMUZSkzcAJUWJ9C6zEMgAAAAASUVORK5CYII=) 3px 5px no-repeat;cursor:pointer;padding-left:25px}
+.table .asc h3 {background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADlSURBVDhPY/z//z8DKYCJFMUgtUgaLveaAEHu5jdQM95szgUJAEHvZYSx+G2wrN9xZn4kiiMocRIW35ydkhfVsJkEGxTc4ouDjVE0sOAOJV7jtEpjNV1e9ZlvhYnyNLuUrq4UOwOvgrECL1Eafj67fBYCHnwmSsOvt7eOAcHa3vS1D9A1/PwMAj9Bwr9+vYWyeXWDc9Mcft18YKkjieRTYFr6///10dYgYwQI6rn0AyT8dFOOJYwNVgdKeDAGSBKsJaj16GuIKTtyLHM2PYUpQNcAMdAeScXrTTlQS3suIXQxkpq8AQ+gr3VC37dGAAAAAElFTkSuQmCC) 3px 5px no-repeat;cursor:pointer;padding-left:25px}
+/*.table .head:hover, .tinytable .desc:hover, .tinytable .asc:hover {color:#fff}*/
+/*.table .evenrow td {background:#fff}
+.table .oddrow td {background:#ecf2f6}
+.table td.evenselected {background:#ecf2f6}
+.table td.oddselected {background:#dce6ee}*/
+.table tfoot {background:#fff;font-weight:bold}
+.table tfoot td {padding:6px 8px 8px}
+#tablefooter {height:15px;margin-top:20px}
+#tablenav {float:left}
+#tablenav img {cursor:pointer}
+#tablenav div {float:left;margin-right:15px}
+#tablelocation {float:right;font-size:12px}
+#tablelocation select {z-index:0;margin-right:3px}
+#tablelocation div {float:left; margin-left:15px}
+.page {font-style:italic}
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {background-color:#e7e7e7;cursor:pointer;}
+.searchbox{width:250px;float:left;}
+.table > tbody > tr > td, th, input{vertical-align: middle;}
+.table > tbody > tr > td:not(#left), th:not(#left){text-align:center;}
+.table > tbody > tr > td > button,a{margin:0 1px 0 1px}
+.table > tbody > tr > td > a:hover{text-decoration:none;}
