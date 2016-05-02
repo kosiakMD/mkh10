@@ -249,9 +249,9 @@ function paint(){
 	//getStorage();
 	// translate();
 	$('body').removeAttr("style");
-	alphabet.call($('#letter'));
+	alphabet.call( $('#letter') );
 	numbers();
-	formCatalog.call($('#catalog1'), ICD.classes, 'class', 0);
+	formCatalog.call( $('#catalog1'), ICD.classes, 'class', 0 );
 	adaptation();
 	Width1();
 	Width2();
@@ -514,7 +514,7 @@ function startCatalog(animation){
 };
 // - Search
 function searchList(){
-	// console.time("searchList");
+	console.time("searchList");
 	var min = 0,
 			max = ICD.diagnoses.length;
 	ICD.concat = [];
@@ -546,7 +546,7 @@ function searchList(){
 			}
 		}
 	}
-	// console.timeEnd("searchList");
+	console.timeEnd("searchList");
 };
 function selectValidate(){
 	//console.log('validation begin');
@@ -587,6 +587,7 @@ function searchBySelect(cat){
 	console.timeEnd('searchBySelect');
 };
 function liveSearch(){
+	console.log("liveSearch");
 	var q = 0;
 	$( "#autocomplete" ).autocomplete({
 		//source: ICD.nosologies,
@@ -638,10 +639,14 @@ function liveSearch(){
 			// console.log( this/*.term, $("#autocomplete").val()*/ );
 				var type;
 				switch (q){
-					case 3:type='success'; break;
-					case 0:type='info'; break;
-					case 1:type='warning'; break;
-					case 2:type='danger'; break;
+					case 3 : type = 'success';
+						break;
+					case 0 : type = 'info';
+						break;
+					case 1 : type = 'warning';
+						break;
+					case 2 : type = 'danger';
+						break;
 				}
 				type = 'list-group-item-' + type;
 				q++;
@@ -651,16 +656,17 @@ function liveSearch(){
 				var re = new RegExp( "("+this.term+")", "i");
 				var text = item.label.replace( re, "<b><u>$1</u></b>" );
 				return $( '<li>' )
-					.data( "item.autocomplete", item )
-					.append( "<b>" + code + '</b> ' + text )
+					// .data( "item.autocomplete", item )
+					.append( '<b>' + code + '</b> ' + text )
 					// .append( item.label )
-					.addClass( 'list-group-item' )
+					.addClass( 'list-group-item ' + type )
 					.addClass( item.n2 && "sub" )
-					.addClass( type )
+					// .addClass( type )
 					.appendTo( ul )
 					//.parent()
 					//.addClass('list-group-item col-xs-4')
 					//.css('width',0);
+				// return $(ul).append('<li class="list-group-item '+type+' "><b>'+code+'</b> '+text+'</li>')
 			},
 			$(this).data('ui-autocomplete')._resizeMenu = function( ul, item ){
 				//this.menu.element.outerWidth(APP.width2);
@@ -799,10 +805,10 @@ function loadDB(){
 		for (var prop in version.ICD["uk"]) {
 			ICD[prop] = version.ICD["uk"][prop];
 		};
-		save("ICD",ICD);
-		paint();
+		save( "ICD", ICD );
 		// translate();
 		searchList();
+		paint();
 		preloaderXHR.end();
 	});
 };
@@ -931,7 +937,7 @@ function initRouter(){
 	$Router.path().add({
 		"/" : "views/index.html",
 		"/about" : "views/about.html",
-		"/donate" : "views/donate.html",
+		"/donate" : "views/donate.html"
 	});
 	$Router.path().add({
 		"/feedback" : "views/feedback.html"
@@ -972,7 +978,7 @@ function initRouter(){
 		})//.hashPrefix('#');
 	});
 	app.controller('TranslateController', function ml( $scope*//*, $routeParams*//*){
-		 //ml var $appElement = $('[ng-controller="TranslateController"]'),
+		//ml var $appElement = $('[ng-controller="TranslateController"]'),
 				$scope = angular.element( $appElement ).scope();
 		$scope.ml = Lang.text;*/
 		/*$scope.$on('$viewContentLoaded', function() {
