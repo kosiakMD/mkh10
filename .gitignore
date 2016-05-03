@@ -26,3 +26,7 @@ bower_components/
 
 # NPM components: grunt etc.
 node_modules/
+
+# cmd/bat
+*.cmd
+*.bat

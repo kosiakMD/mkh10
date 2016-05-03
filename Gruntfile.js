@@ -26,7 +26,7 @@ module.exports = function(grunt) {
 		pkg : grunt.file.readJSON('package.json'),
 
 		jshint: {
-			all: ['Gruntfile.js', 'src/js/**/*.js']
+			all: ['Gruntfile.js', '<%= concat.js.dest %>' ] //'src/js/**/*.js']
 		},
 		imagemin: {                          // Task 
 			/*static: {                          // Target 
@@ -65,6 +65,13 @@ module.exports = function(grunt) {
 				}]
 			}
 		},
+		autoprefixer: {
+			dist: {
+				files: {
+					'<%= globalConfig.styles %>/style.autoprefixer.css': '<%= globalConfig.styles %>/style.css'
+				}
+			}
+		},
 		// Compress my CSS files
 		cssmin: {
 			dist: {
@@ -86,6 +93,7 @@ module.exports = function(grunt) {
 		// Concat all my files and Libs
 		concat: {
 			optinos: {},
+			// concat JSON DataBase
 			db: {
 				src: [ 
 					'<%= globalConfig.src_db %>/count.json ',
@@ -110,10 +118,15 @@ module.exports = function(grunt) {
 				],
 				dest: '<%= globalConfig.styles %>/all.min.css'
 			},
-			// Concat JS
+			// Concat JS Vendors & Libraries
+			// jsLibs: {
+				// src: [],
+				// dest: ''
+			// },
+			// Concat My JS
 			js: {
 				src: [
-				// Concat JS Libraries
+					// Concat JS Libraries
 					// Jquery
 						'<%= globalConfig.bower_path %>/jquery/dist/jquery.min.js',
 						// '<%= globalConfig.bower_path %>/jquery/dist/jquery.slim.min.js',
@@ -137,9 +150,9 @@ module.exports = function(grunt) {
 						'<%= globalConfig.bsjs %>/dropdown.js',
 					// Jasny-Bootstrap
 						'<%= globalConfig.bower_path %>/jasny-bootstrap/dist/js/jasny-bootstrap.min.js',
-				// All My JS Files
+					// All My JS Files
 					'<%= globalConfig.srcjs %>*.js'
-				// Concat My JS files
+					// Concat My JS files
 					// Commons
 						// '<%= globalConfig.srcjs %>commons.js',
 					// $http Promise Deffer
@@ -181,17 +194,43 @@ module.exports = function(grunt) {
 				src: '<%= concat.js.dest %>',
 				dest: '<%= globalConfig.scripts %>/app.min.js'
 			}
+		},
+		watch: {
+			configFiles: {
+				files: [ 'Gruntfile.js', 'config/*.js' ],
+				options: {
+					reload: true
+				}
+			},
+			scripts: {
+				files: [
+					'<%= globalConfig.srcjs %>*.js'
+				],
+				tasks: ['concat', 'uglify'],
+					options: {
+						spawn: false,
+					}
+			},
+			css: {
+				files: [ '<%= globalConfig.styles %>/style.css' ],
+				tasks: [ 'cssmin', 'concat' ],
+				options: {
+					spawn: false,
+				}
+			}
 		}
 	});
 
 	// load plugn for task(s)
 	// grunt.loadNpmTasks('grunt-yui-compressor');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
-
+	grunt.loadNpmTasks('grunt-contrib-watch');
+ 
 	// Default task(s).
 	grunt.registerTask('default', [ 
 		'cssmin'
@@ -200,5 +239,7 @@ module.exports = function(grunt) {
 		// ,'jshint'
 		,'uglify'
 		// ,'imagemin'
+		// ,'autoprefixer'
+		 ,'watch'
 	]);
 };

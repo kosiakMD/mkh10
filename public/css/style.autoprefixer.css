@@ -96,8 +96,6 @@ body{
 		font-size: 20px;
 	}
 	.icd_select{
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
 		box-sizing: border-box;
 		height: 40px;
 		border: 1px solid #ccc;
@@ -107,6 +105,7 @@ body{
 		cursor: pointer;
 	}
 	#selectSearchSubmit{
+		float:;
 		//height: 40px;
 		cursor: pointer;
 		//margin: 5px 0;
@@ -130,7 +129,6 @@ body{
 	border-color: #ddd;
 	border-radius: 4px 4px 0 0;
 	background-color: #fff;
-	-webkit-box-shadow: none;
 	box-shadow: none;
  }
  .panel-purple{
@@ -159,7 +157,8 @@ body{
 	border-style: solid;
 	border-color: #EEE;
 	border-radius: 3px;
-	border-image: none;
+	-o-border-image: none;
+	   border-image: none;
 	background-color: white;
 	-moz-border-top-colors: none;
 	-moz-border-right-colors: none;
