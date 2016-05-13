@@ -1,0 +1,196 @@
+<div class="">
+
+	<!-- Tabs -->
+	<div class="container-fulid" role="tabpanel" >
+
+		<!-- Nav tabs -->
+		<div id="tab_menu" class="btn-group btn-group-justified hidden-lg hidden-md" role="group" aria-label="...">
+			<div class="btn-group" role="group">
+			<button type="button" class="btn btn-default btn-danger active" data-id="#tab_catalog">Каталог</button>
+			</div>
+			<div class="btn-group" role="group">
+			<button type="button" class="btn btn-default btn-warning" data-id="#selectSearch">Код</button>
+			</div>
+			<div class="btn-group" role="group">
+			<button type="button" class="btn btn-default btn-success" data-id="#tab_fastSearch">Пошук</button>
+			</div>
+		</div>
+
+		<div id="content" class="">
+
+			<!-- Catalog -->
+			<div id="tab_catalog" class="container-fluid full-width-xs full-width-sm col-xs-12 col-md-4 -pane active topic_conent " role="tabpanel" >
+				<div class=" panel panel-default">
+					<div class="hidden-xs hidden-sm text-center panel-heading">Каталог</div>
+					<div class="container-fluid full-width panel-body">
+
+						<div id="catalog-wrapper" class="">
+							<!-- slides -->
+							<div class="slides">
+
+								<ul id="catalog" class="list-group">
+
+								<!-- Classes -->
+								<div class="catalog " id="catalog1">
+									<li class=" panel panel-info " id="">
+										<div class="panel-heading">Класи</div>
+										<ul class="list	list-group">
+										</ul>
+									</li>
+								</div>
+								<!-- Blocks -->
+								<div class="catalog " id="catalog2">
+									<!-- <li class=" panel panel-info " id="">
+										<div class="panel-heading">Class:</div>
+									</li> -->
+									<li class=" panel panel-success" id="">
+										<div class="noselect backCatalog" type="class">
+											<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+										</div>
+										<div class="panel-heading">Блоки</div>
+										<ul class="list	list-group">
+										</ul>
+										<div class="noselect backCatalog back_bottom" type="class">
+											<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+										</div>
+										<div class="panel-heading panel_bottom"></div>
+									</li>
+								</div>
+								<!-- Nosologies -->
+								<div class="catalog " id="catalog3">
+									<!-- <li class=" panel panel-info " id="">
+										<div class="panel-heading">Class:</div>
+									</li>
+									<li class=" panel panel-success" id="">
+										<div class="panel-heading">Block:</div>
+									</li> -->
+									<li class=" panel panel-warning" id="">
+										<div class="noselect backCatalog" type="block">
+											<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+										</div>
+										<div class="panel-heading">Нозології</div>
+										<ul class="list	list-group">
+										</ul>
+										<div class="noselect backCatalog back_bottom" type="block">
+											<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+										</div>
+										<div class="panel-heading panel_bottom"></div>
+									</li>
+								</div>
+								<!-- Diagnoses -->
+								<div class="catalog " id="catalog4">
+									<!-- <li class=" panel panel-info " id="">
+										<div class="panel-heading">Class:</div>
+									</li>
+									<li class=" panel panel-success" id="">
+										<div class="panel-heading">Block:</div>
+									</li>
+									<li class=" panel panel-warning" id="">
+										<div class="panel-heading">Nosology:</div>
+									</li> -->
+									<li class="catalog panel panel-danger" id="">
+										<div class="noselect backCatalog" type="nosology">
+											<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+										</div>
+										<div class="panel-heading">Діагнози</div>
+										<ul class="list	list-group">
+										</ul>
+										<div class="noselect backCatalog back_bottom" type="nosology">
+											<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+										</div>
+										<div class="panel-heading panel_bottom"></div>
+									</li>
+								</div>
+
+								</ul>
+							</div>
+							<!-- /slides -->
+						</div>
+					</div>
+					<!--/.row panel-body-->
+				</div>
+			</div>
+
+			<!-- Selects -->
+			<div id="selectSearch" class="container-fluid full-width-xs full-width-sm col-xs-12 col-md-4 -pane hidden-xs hidden-sm topic_conent" role="tabpanel" >
+				<div class=" panel panel-default">
+					<div class="hidden-xs hidden-sm text-center panel-heading">Код</div>
+
+					<div id="selects" class="container-fluid full-width panel-body" >
+
+						<div class=" text-center">
+							<div class="col-xs-3">
+								<select id="letter" class="form-control icd_select finSelect ">
+									<option value="-">-</option>
+								</select>
+							</div>
+							<div class="col-xs-3">
+								<select id="number1a" class="form-control icd_select numbers selDisNum" disabled="disabled">
+									<option value="-">-</option>
+								</select>
+							</div>
+							<div class="col-xs-3">
+								<select id="number1b" class="form-control icd_select finSelect numbers selDisNum " disabled="disabled">
+									<option value="-">-</option>
+								</select>
+							</div>
+							<div class="col-xs-3">
+								<select id="number2" class="form-control icd_select numbers selNosNum " disabled="disabled">
+									<option value="-">-</option>
+								</select>
+							</div>
+						</div>
+						<br><br>
+						<div class="row col-xs-10 col-xs-offset-1" >
+							<h3 class="col-xs-8" id="select_code">---.-</h3>
+							<button class="col-xs-4 btn btn-primary" id="selectSearchSubmit" disabled="disabled">Пошук</button>
+						</div>
+						<div class="col-xs-10 col-xs-offset-1 " id="select_result" style="float:both">
+							<p class="result" id="result0"></p>
+							<p class="result" id="result1">Оберіть літеру</p>
+							<p class="result" id="result2">Оберіть першу та другу цифри числа</p>
+						</div>
+						<p style="float:both">	&nbsp;</p>
+
+					</div>
+				</div>
+			</div><!--/.col-xs-6.col-lg-4-->
+						
+			<!-- Fast Searching -->
+			<div id="tab_fastSearch" class="container-fluid full-width-xs full-width-sm col-xs-12 col-md-4 -pane hidden-xs hidden-sm topic_conent" role="tabpanel" >
+				<div class=" panel panel-default">
+					<div class="hidden-xs hidden-sm text-center panel-heading ">Пошук</div>
+					<div class="container-fluid  full-width-xs full-width-sm panel-body">
+						<div class="btn-group btn-group-justified " id="changeSource" role="group" aria-label="...">
+							<div class="btn-group btn-group-sm" role="group">
+								<button type="button" class="btn btn-primary " source="diagnoses">Діагнози</button>
+							</div>
+							<div class="btn-group btn-group-sm" role="group">
+								<button type="button" class="btn btn-primary " source="nosologies">Нозології</button>
+								</div>
+							<div class="btn-group btn-group-sm" role="group">
+								<button type="button" class="btn btn-primary active" source="concat">Разом</button>
+							</div>
+						</div>
+						<!-- Autocomplete -->
+						<h3 class="demoHeaders text-center" id="result">Автодоповнення</h3>
+						<div class="colx-xs-12">
+							<button id="clear_search" class=" col-xs-4 col-xs-offset-1 btn btn-danger">Очистити</button>
+							<button id="start_search" class=" col-xs-4 col-xs-offset-2 btn btn-success">Пошук</button>
+						</div>
+							<br><br>
+							<!-- <button id="clear_search" class="glyphicon glyphicon-remove col-md-1  btn btn-danger"></button> -->
+						<div class=" col-xs-12 ">
+							<input id="autocomplete" title="type &quot;a&quot;" class="form-control col-xs-10" placeholder="Текст пошуку" type="search">
+						</div>
+						<p class="col-xs-12"></p>
+						<div id="auto_results"></div>
+						<p class="col-xs-12"></p>
+					</div>
+				</div>
+			</div><!--/.col-xs-6.col-lg-4-->
+
+		</div><!--/tab_content-->
+
+	</div><!--/row-->
+</div><!--/.col-xs-12.col-sm-9-->

@@ -2,12 +2,9 @@
 .DS_Store
 Desktop.ini
 
-#Thumbs
-.db
-
 #Sublime
-.sublime-project
-.sublime-workspace
+mkh10.sublime-project
+mkh10.sublime-workspace
 
 # Thumbnail cache files
 ._*
