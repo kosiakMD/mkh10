@@ -2,29 +2,16 @@ CACHE MANIFEST
 #VERSION 0.1.5.9
 
 #Cache files:
-/index.html
-/views/index.html
+# /index.html
+#/views/index.html
 /views/donate.html
 /views/about.html
 
-/public/css/all.min.css
-#/public/libs/bootstrap/css/bootstrap.min.css
-#/public/css/spacelab.min.css
-#/public/libs/jasny-bootstrap/css/jasny-bootstrap.min.css
-#/public/css/style.css
-#/public/css/style.min.css
+#/public/css/all.min.css
 
-/public/js/app.min.js
-#/public/js/icd.js
-#/public/js/icd.min.js
-#/public/js/vendor/jquery-1.11.3.min.js
-#/public/js/plugins/router.min.js
-#/public/js/plugins/jquery.router.js
-#/public/js/vendor/angular-1.4.3.min.js
-#/public/js/vendor/angular-route.min.js
-#/public/libs/bootstrap/js/bootstrap.min.js
-#/public/libs/jqui/jquery-ui.min.js
-#/public/libs/jasny-bootstrap/js/jasny-bootstrap.min.js
+
+#/public/js/app.min.js
+
 
 /public/img/favicon.ico
 /public/img/license.png

@@ -17,13 +17,12 @@ preloaderXHR = {
 	counter : false,
 	count : 0,
 	allow : false,
-
 	add : function(file, name, text){
 		file += ".json";
 		console.log("#____add file: "+file);
 		preloaderXHR.count++;
 		preloaderXHR.allow = false;
-		preloaderXHR .loadingFile(file, name, text);
+		preloaderXHR.loadingFile(file, name, text);
 		/*console.log(req.readyState);
 		req.onreadystatechange = function(){
 			console.log(this);

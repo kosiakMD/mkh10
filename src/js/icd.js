@@ -1,10 +1,10 @@
-// !
-// keleborn.mail@gmail.com
-// (c) 2015 МКХ 10 - http://mkh10.com.ua
-// Anton Kosiak <keleborn.mail [at] gmail.com>
-// The library ICD of World Health Organization not under the MIT license :
-// https://who.com
-// 
+/*!
+ * keleborn.mail@gmail.com
+ * (c) 2015 МКХ 10 - http://mkh10.com.ua
+ * Anton Kosiak <keleborn.mail [at] gmail.com>
+ * The library ICD of World Health Organization not under the MIT license :
+ * https://who.com 
+ */
 "use strict"
 // 
 
@@ -252,8 +252,7 @@ function paint(){
 	alphabet.call( $('#letter') );
 	numbers();
 	formCatalog.call( $('#catalog1'), ICD.classes, 'class', 0 );
-	adaptation();
-	Width1();
+	// adaptation();
 	Width2();
 	liveSearch();
 	console.log("paint END ----")
@@ -270,14 +269,26 @@ function Width2(){
 	//console.log('w2',APP.width2);
 	return true;
 };
-function adaptation() {
+function Width3(){
+	$('.ui-autocomplete').outerWidth(APP.width2 - 2);
+	//console.log('w2',APP.width2);
+	return true;
+};
+function adaptation(slide, width) {
+	console.log("adaptation", slide);
 	var h = $("#top_menu").height();
-	$("#view_content").css("margin-top", h + 10);
+	$("#view_content").css({
+		"margin-top" : h + 10,
+		'min-height' : $(window).height() - $("footer").outerHeight() - h - 10 
+	});
+	slide && slideCatalog();
+	width && Width2() && Width3();
+	Width1();
 	return true;
 };
 // - Catalog
 function catalogHandler(){
-	// console.log("catalogHandler");
+	console.log("catalogHandler");
 	var element = $(this).attr('element'),
 			ind = $(this).attr('number'),
 			newElements = [];
@@ -447,7 +458,7 @@ function activeElement(el){
 	}*/
 };
 function scrollCatalog(el){
-	console.log("scrollCatalog");
+	// console.log("scrollCatalog");
 	if(el && typeof el === "object"){
 		var pos = el.offset();
 		// console.log(el, pos.top)
@@ -463,12 +474,12 @@ function scrollCatalog(el){
 				: $("html, body").scrollTop( pos.top - height );
 		}
 	}
+	Width1();
 	return true;
 }
 function slideCatalog(type, back){
-	console.log('slideCatalog');
-	//console.log(screen.width)
-	//console.log(window.width)
+	// console.log('slideCatalog');
+	// console.log(screen.width)
 	// console.log(type);
 	var step;
 	if (type){
@@ -498,10 +509,13 @@ function slideCatalog(type, back){
 			// scrollCatalog( activeElement[type] );
 		};
 	}
+	// calibrate catalog width - scrollbar hide change width of page
+	$("#catalog").height( $("#catalog" + (step+1) ).height() );
+	APP.width1 = $("#catalog-wrapper").width();
+	// slide if more powerfull core - basing on screen width
 	screen.width > 690
 		? $('#catalog').animate({"left" : -APP.width1 * APP.stepCatalog})
 		: $('#catalog').css("left", -APP.width1 * APP.stepCatalog);
-	$("#catalog").height( $("#catalog" + (step+1) ).height() );
 	scrollCatalog( back && activeElement[type] );
 	$(document).trigger("catalogReady");
 	return true;
@@ -512,6 +526,55 @@ function startCatalog(animation){
 		? $('#catalog').animate({"left" : -APP.width1 * APP.stepCatalog})
 		: $('#catalog').css("left",-APP.width1 * APP.stepCatalog);
 };
+function catalogView( type ){
+	// if type and not default #tabs width
+	if(!type && type !== 0){
+		// if storage and Stteing is in
+		// read from localStorage Setting
+		console.log("catalogView EMPTY", type);
+		if( storage && storage.catalogView ){
+			if(storage.catalogView == 1 ) return;
+			type = +storage.catalogView;
+			// write the Setting into data for "toggleFunc" order
+			$("#tabs").data('toggleStatus', type - 1);
+			console.log("not 1")
+		}else{
+			return false;
+		}
+	}
+	/*( !type && type !== 1 && type !== 0) && ( 
+		console.log("catalogView EMPTY", type),
+		// read from localStorage Settings
+		type = +storage.catalogView, 
+		// write the Setting into data for "toggleFunc" order
+		$("#tabs").data('toggleStatus', type - 1),
+		// change icon for change-size if full-width (#3)
+		type === 3 && $(".resize_content").toggleClass('glyphicon-resize-full glyphicon-resize-small')
+	);*/
+	console.log("catalogView HANDLER", type);
+	var width, marginLeft;
+	switch (type){
+		case 0 : width = '', marginLeft = '';
+			break; 
+		case 2 : width = '75%', marginLeft = '12.5%';
+			break;
+		case 3 : width = screen.width, marginLeft = '0';
+			break;
+		case 1 : width = '50%', marginLeft = '25%';
+			break;
+		default: throw new Error("unReg arg for catalogView");
+			break;
+	}
+	// save Setting to localStorage if type != 0
+	// '0' only fpr default CSS
+	type && (storage.catalogView = type);
+	// unify handler
+	var action = (type === 0) ? ('css') : 'animate' ;
+	$('#tabs')[action]({
+		width: width,
+		marginLeft: marginLeft
+	}, adaptation.bind(null, true, true) );
+}
 // - Search
 function searchList(){
 	console.time("searchList");
@@ -757,6 +820,7 @@ function getLang(){
 // - Loading
 function load(file, name, method){
 	// path && (file = path + file);
+	// if(!!file) return false;
 	console.log("load: " + file + ".json && save as \{" + name + "\}", "method: " + method);
 	preloaderXHR.add(file, name);//ON Preloader
 	var meth = method || "get",
@@ -765,12 +829,19 @@ function load(file, name, method){
 			.then(
 				function(data){//if data load Good (XHR)
 					// callback.success;
-					if(name.match(/\./)){//if name has "."
+					if(name === 'ICD'){
+						data = parse(data);
+						var names = ['count','classes','blocks','nosologies','diagnoses'];
+						for (var i = names.length - 1; i >= 0; i--) {
+							window[name][ names[i] ] = data[i];
+						}
+					}
+					/*if(name.match(/\./)){//if name has "."
 						var temp = name.split(".");//split to object : property
 						if( !window[ temp[0] ] ) window[ temp[0] ] = {};//if no object - create it
 						window[ temp[0] ][ temp[1] ] = parse(data);//asign object : property
 						// checkStorage && save(temp[0], window[ temp[0] ]);//if storage available save it
-					}
+					}*/
 					else{
 						window[name] = parse(data);//asign object : property
 						// checkStorage && save(name, window[name]);//if storage available save it
@@ -795,11 +866,12 @@ function loadLang(lang){
 }
 function loadDB(){
 	return $.when(
-		load("public/db/count", "ICD.count"),
+		/*load("public/db/count", "ICD.count"),
 		load("public/db/classes", "ICD.classes"),
 		load("public/db/blocks", "ICD.blocks"),
 		load("public/db/nosologies", "ICD.nosologies"),
-		load("public/db/diagnoses", "ICD.diagnoses")
+		load("public/db/diagnoses", "ICD.diagnoses")*/
+		load('public/db/db', 'ICD')
 	).then(function (){
 		// ICD = version.ICD["uk"/*getLang()*/];
 		for (var prop in version.ICD["uk"]) {
@@ -857,6 +929,7 @@ function __simpleRouter(){
 			// document.onreadystatechange = function () {
 			// $(document).ready(function () {
 				var path = location.pathname.slice();
+				!core.roads[path] && ( window.location.href = '/' );
 				var page = core.gate(path);
 				core.loadPage(page, path);
 			// });
@@ -944,7 +1017,7 @@ function initRouter(){
 	});
 	$Router.controller("/", function(){
 		paint();
-		adaptation();
+		// adaptation();
 	});
 	$Router.controller("/feedback", function(){
 		$(window).trigger( 'load' );
@@ -1089,7 +1162,7 @@ $('body')
 		slideCatalog(type, true);
 	})
 //ON click, #catalog-wrapper li.element
-	.on('click', '#catalog-wrapper li.element', function(event){
+	.on('click tap', '#catalog-wrapper li.element', function(event){
 		event.stopPropagation();
 		catalogHandler.apply( $(this) );
 	})
@@ -1100,11 +1173,11 @@ $('body')
 			return;
 		$('#tab_menu .active').toggleClass('active')
 		$(this).toggleClass('active');
-		$('#content>.active').toggleClass('active').toggleClass('hidden-xs').toggleClass('hidden-sm');
-		//$('#'+$(this).attr('aria-controls')).toggleClass('active');hidden-xs
-		$($(this).attr('data-id')).toggleClass('active').toggleClass('hidden-xs').toggleClass('hidden-sm');
+		/*$('#content>.active').toggleClass('active').toggleClass('hidden-xs').toggleClass('hidden-sm');
+		$($(this).attr('data-id')).toggleClass('active').toggleClass('hidden-xs').toggleClass('hidden-sm');*/
+		$('#content>.active').toggleClass('active').toggleClass('hidden');
+		$($(this).attr('data-id')).toggleClass('active').toggleClass('hidden');
 		adaptation();
-		Width1();
 		Width2();
 	})
 //ON focus, #autocomplete
@@ -1222,6 +1295,30 @@ $('body')
 				return false;
 			}
 		});
+	})
+//ON click, .resize_content
+	.on("click", ".resize_content", function(){
+		$('#tabs').toggleFunc([
+			function(){
+				catalogView(2);
+				// $(this).toggleClass('col-md-6 col-md-offset-3');
+			},
+			function(){
+				catalogView(3);
+				$(".resize_content").toggleClass('glyphicon-resize-full glyphicon-resize-small');
+			},
+			function(){
+				catalogView(1);
+				$(".resize_content").toggleClass('glyphicon-resize-full glyphicon-resize-small');
+				// $(this).toggleClass('col-md-6 col-md-offset-3');
+			}],
+			function(){
+				// console.log('always')
+				// slideCatalog();
+				// $('#tabs').data('toggleStatus') === 2
+			}
+		);
+		// $(".resize_content").toggleClass('glyphicon-resize-full glyphicon-resize-small');
 });
 
 // -------------- BEGIN
@@ -1237,19 +1334,30 @@ $(document).ready(function(){
 	menu_href();
 	$('[data-toggle="tooltip"]').tooltip();
 	$(".devMode").addClass( function(){ return parse(storage.Debugger) ? "active" : ""; } );
-	var windowWidth = $(window).width();
-	$( window ).resize(function(){
-		// when real resize (for Safari) by Width
-		if( $(window).width() != windowWidth ){
-			// remember new Width
-			windowWidth = $(window).width();
-			// foo:
-			adaptation();
-			Width1();
-			slideCatalog(/*APP.stepCatalog*/);
-			Width2();
-		}
+
+	$( window ).on('realresize', function(){
+		console.log('realresize')
+		adaptation(true);
+		// slideCatalog(/*APP.stepCatalog*/);
+		Width2();
 	});
+	$( window ).on('orientationchange', function(e, data){
+		console.log('orientationchange',e.from, '--->', e.to)
+		e.to === "portrait" ? catalogView(0) : catalogView();
+	});
+	$( window ).on('orientationportrait', function(){
+
+		console.log('orientationportrait', '||');
+		// orientationchange
+		// onlandscape
+		// onportrait
+		/*$('#tabs').css({
+			width: "",
+			marginLeft: ""
+		}, adaptation);*/
+		// adaptation();
+	});
+
 	//ml var $appElement = $('[ng-app="multiLang"]'),
 	//ml 			$scope = angular.element( $appElement ).scope();
 	//ml 	mlDefine($scope);
@@ -1263,7 +1371,12 @@ $(document).ready(function(){
 window.onload = function(){
 	log("------ Window Loaded");
 	window.loaded = true;
-	adaptation();
+	// adaptation();
+	// onload if "portrait" must be full width
+	// as default bootstrap grid
+	// storage = undefined; console.log(storage); //-- check storage and saved Setting inside
+	/*!!storage && storage.catalogView && */
+	($.getOrientation() === "landscape") && catalogView();
 	if(checkStorage() && storage.readNews !== "true"){
 		$("#myModal2").modal("show");
 	}
@@ -1273,4 +1386,4 @@ window.onload = function(){
 	//Width1();
 	//Width2();
 	//liveSearch();
-};
+}; 

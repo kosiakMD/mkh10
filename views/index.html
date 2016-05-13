@@ -1,10 +1,10 @@
 <div class="">
 
 	<!-- Tabs -->
-	<div class="container-fulid" role="tabpanel" >
+	<div id="tabs" class="container-fulid full-width-xs full-width-sm col-md-6 col-md-offset-3" role="tabpanel" >
 
 		<!-- Nav tabs -->
-		<div id="tab_menu" class="btn-group btn-group-justified hidden-lg hidden-md" role="group" aria-label="...">
+		<div id="tab_menu" class=" btn-group btn-group-justified " role="group" aria-label="...">
 			<div class="btn-group" role="group">
 			<button type="button" class="btn btn-default btn-danger active" data-id="#tab_catalog">Каталог</button>
 			</div>
@@ -16,12 +16,14 @@
 			</div>
 		</div>
 
-		<div id="content" class="">
+		<div id="content" class="row unrow-xs unrow-sm">
 
 			<!-- Catalog -->
-			<div id="tab_catalog" class="container-fluid full-width-xs full-width-sm col-xs-12 col-md-4 -pane active topic_conent " role="tabpanel" >
+			<div id="tab_catalog" class="container-fluid full-width-xs full-width-sm col-xs-12 col-md-12 -pane active topic_conent " role="tabpanel" >
 				<div class=" panel panel-default">
-					<div class="hidden-xs hidden-sm text-center panel-heading">Каталог</div>
+					<div class="hidden-xs hidden-sm text-center panel-heading">Каталог
+						<button class="btn btn-sm glyphicon glyphicon-resize-full pull-right resize_content"></button>
+					</div>
 					<div class="container-fluid full-width panel-body">
 
 						<div id="catalog-wrapper" class="">
@@ -112,9 +114,11 @@
 			</div>
 
 			<!-- Selects -->
-			<div id="selectSearch" class="container-fluid full-width-xs full-width-sm col-xs-12 col-md-4 -pane hidden-xs hidden-sm topic_conent" role="tabpanel" >
+			<div id="selectSearch" class="container-fluid full-width-xs full-width-sm col-xs-12 col-md-12 -pane hidden topic_conent" role="tabpanel" >
 				<div class=" panel panel-default">
-					<div class="hidden-xs hidden-sm text-center panel-heading">Код</div>
+					<div class="hidden-xs hidden-sm text-center panel-heading">Код
+						<button class="btn btn-sm glyphicon glyphicon-resize-full pull-right resize_content"></button>
+					</div>
 
 					<div id="selects" class="container-fluid full-width panel-body" >
 
@@ -157,9 +161,11 @@
 			</div><!--/.col-xs-6.col-lg-4-->
 						
 			<!-- Fast Searching -->
-			<div id="tab_fastSearch" class="container-fluid full-width-xs full-width-sm col-xs-12 col-md-4 -pane hidden-xs hidden-sm topic_conent" role="tabpanel" >
+			<div id="tab_fastSearch" class="container-fluid full-width-xs full-width-sm col-xs-12 col-md-12 -pane hidden topic_conent" role="tabpanel" >
 				<div class=" panel panel-default">
-					<div class="hidden-xs hidden-sm text-center panel-heading ">Пошук</div>
+					<div class="hidden-xs hidden-sm text-center panel-heading ">Пошук
+						<button class="btn btn-sm glyphicon glyphicon-resize-full pull-right resize_content"></button>
+					</div>
 					<div class="container-fluid  full-width-xs full-width-sm panel-body">
 						<div class="btn-group btn-group-justified " id="changeSource" role="group" aria-label="...">
 							<div class="btn-group btn-group-sm" role="group">

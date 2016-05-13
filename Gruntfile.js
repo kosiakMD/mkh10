@@ -4,16 +4,18 @@ module.exports = function(grunt) {
  
 	var globalConfig = {
 		version : '1.6.0',
+		bower : 'bower_components',
+		src : 'src',
+		public : 'public',
 		src_img : 'src/img',
 		img : 'public/img',
 		src_db : 'src/db',
 		db : 'public/db',
-		styles : 'public/css',
+		src_css : 'src/css',
+		css : 'public/css',
 		fonts : 'public/fonts',
-		scripts : 'public/js',
-		src : 'src',
-		srcjs : 'src/js/',
-		bower_path : 'bower_components',
+		src_js : 'src/js',
+		js : 'public/js',
 		jqui : 'bower_components/jquery-ui/ui/minified',
 		bsjs : 'bower_components/bootstrap/js'
 	};
@@ -24,7 +26,7 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		globalConfig : globalConfig,
 		pkg : grunt.file.readJSON('package.json'),
-
+		asd : 'someText',
 		jshint: {
 			all: ['Gruntfile.js', '<%= concat.js.dest %>' ] //'src/js/**/*.js']
 		},
@@ -68,7 +70,7 @@ module.exports = function(grunt) {
 		autoprefixer: {
 			dist: {
 				files: {
-					'<%= globalConfig.styles %>/style.autoprefixer.css': '<%= globalConfig.styles %>/style.css'
+					'<%= globalConfig.src_css %>/style.autoprefixer.css': '<%= globalConfig.src_css %>/style.css'
 				}
 			}
 		},
@@ -76,9 +78,9 @@ module.exports = function(grunt) {
 		cssmin: {
 			dist: {
 				src: [
-					'<%= globalConfig.styles %>/style.css'
+					'<%= globalConfig.src_css %>/style.css'
 				],
-				dest: '<%= globalConfig.styles %>/style.min.css'
+				dest: '<%= globalConfig.src_css %>/style.min.css'
 			}
 		},
 		// Compress my JS files
@@ -92,9 +94,17 @@ module.exports = function(grunt) {
 		},
 		// Concat all my files and Libs
 		concat: {
-			optinos: {},
+			options: {
+				// separator : ";\n"
+			},
 			// concat JSON DataBase
 			db: {
+				// make array from 5 files of JSON objects
+				options: {
+					banner : '[',
+					separator : ',',
+					footer : ']'
+				},
 				src: [ 
 					'<%= globalConfig.src_db %>/count.json ',
 					'<%= globalConfig.src_db %>/classes.json ',
@@ -108,15 +118,17 @@ module.exports = function(grunt) {
 			css: {
 				src: [
 				// Bootstrap CSS
-					// '<%= globalConfig.bower_path %>/bootstrap/dist/css/bootstrap.min.css',
+					// '<%= globalConfig.bower %>/bootstrap/dist/css/bootstrap.min.css',
 				// Bootstrap CSS Style
-					'<%= globalConfig.styles %>/spacelab.min.css',
+					'<%= globalConfig.src_css %>/spacelab.min.css',
 				// Jasny CSS
-					'<%= globalConfig.bower_path %>/jasny-bootstrap/dist/css/jasny-bootstrap.min.css',
+					'<%= globalConfig.bower %>/jasny-bootstrap/dist/css/jasny-bootstrap.min.css',
 				// My compressed CSS
 					'<%= cssmin.dist.dest %>'
+				// My Uncompressed CSS
+					// '<%= globalConfig.src_css %>/style.css'
 				],
-				dest: '<%= globalConfig.styles %>/all.min.css'
+				dest: '<%= globalConfig.css %>/all.min.css'
 			},
 			// Concat JS Vendors & Libraries
 			// jsLibs: {
@@ -128,10 +140,10 @@ module.exports = function(grunt) {
 				src: [
 					// Concat JS Libraries
 					// Jquery
-						'<%= globalConfig.bower_path %>/jquery/dist/jquery.min.js',
-						// '<%= globalConfig.bower_path %>/jquery/dist/jquery.slim.min.js',
+						'<%= globalConfig.bower %>/jquery/dist/jquery.min.js',
+						// '<%= globalConfig.bower %>/jquery/dist/jquery.slim.min.js',
 					// Jquery UI
-						// '<%= globalConfig.bower_path %>/jquery-ui/jquery-ui.min.js',
+						// '<%= globalConfig.bower %>/jquery-ui/jquery-ui.min.js',
 					// Jquery UI Autocomplete Concat
 						'<%= globalConfig.jqui %>/core.min.js',
 						'<%= globalConfig.jqui %>/widget.min.js',
@@ -139,7 +151,7 @@ module.exports = function(grunt) {
 						'<%= globalConfig.jqui %>/menu.min.js',
 						'<%= globalConfig.jqui %>/autocomplete.min.js',
 					// Bootstrap
-						// '<%= globalConfig.bower_path %>/bootstrap/dist/js/bootstrap.min.js',
+						// '<%= globalConfig.bower %>/bootstrap/dist/js/bootstrap.min.js',
 					// Bootstrap JS Concat
 						'<%= globalConfig.bsjs %>/button.js',
 						'<%= globalConfig.bsjs %>/tab.js',
@@ -149,26 +161,26 @@ module.exports = function(grunt) {
 						'<%= globalConfig.bsjs %>/collapse.js',
 						'<%= globalConfig.bsjs %>/dropdown.js',
 					// Jasny-Bootstrap
-						'<%= globalConfig.bower_path %>/jasny-bootstrap/dist/js/jasny-bootstrap.min.js',
+						'<%= globalConfig.bower %>/jasny-bootstrap/dist/js/jasny-bootstrap.min.js',
 					// All My JS Files
-					'<%= globalConfig.srcjs %>*.js'
+					// '<%= globalConfig.srcjs %>*.js'
 					// Concat My JS files
 					// Commons
-						// '<%= globalConfig.srcjs %>commons.js',
-					// $http Promise Deffer
-						// '<%= globalConfig.srcjs %>$http.js',
-					// Debugger
-						// '<%= globalConfig.srcjs %>debugger.js',
-					// App Cache Update
-						// '<%= globalConfig.srcjs %>appCacheUpdate.js',
+						'<%= globalConfig.src_js %>/commons.js',
 					// Preloader XHR
-						// '<%= globalConfig.srcjs %>preloader.js',
+						'<%= globalConfig.src_js %>/preloader.js',
+					// $http Promise Deffer
+						'<%= globalConfig.src_js %>/$http.js',
+					// Debugger
+						'<%= globalConfig.src_js %>/debugger.js',
+					// App Cache Update
+						'<%= globalConfig.src_js %>/appCacheUpdate.js',
 					// Counter for Menu
-						// '<%= globalConfig.srcjs %>counter.js'
+						// '<%= globalConfig.srcjs %>counter.js',
 					// ICD
-						// '<%= globalConfig.srcjs %>icd.js'
+						'<%= globalConfig.src_js %>/icd.js'
 				],
-				dest: '<%= globalConfig.scripts %>/app.min.js'
+				dest: '<%= globalConfig.js %>/app.min.js'
 			}
 		},
 		// Uglify - make code UnReadable
@@ -180,40 +192,50 @@ module.exports = function(grunt) {
 					' <%= grunt.template.today("yyyy-mm-dd") %>\n' +
 					' * МКХ-10 https://mkh10.com.ua\n' +
 					' * Anton Kosiak\n' +
-					' * kosiakMD@yandex.ua */\n' +
-					'/*! jQuery v2.2.3 | (c) jQuery Foundation | jquery.org/license */\n' +
-					'/*! jQuery UI - v1.11.4 - http://jqueryui.com - Copyright jQuery Foundation and other contributors; Licensed MIT */\n' +
-					'/*! Bootstrap: v3.3.6 - http://getbootstrap.com/javascript/#modals - Copyright 2011-2015 Twitter, Inc.\n' +
-					' * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE) */\n'
+					' * kosiakMD@yandex.ua *\n' +
+					' *! jQuery v2.2.3 | (c) jQuery Foundation | jquery.org/license *\n' +
+					' *! jQuery UI - v1.11.4 - http://jqueryui.com - Copyright jQuery Foundation and other contributors; Licensed MIT *\n' +
+					' *! Bootstrap: v3.3.6 - http://getbootstrap.com/javascript/#modals - Copyright 2011-2015 Twitter, Inc.' +
+					' * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE) */\n\n'
 			},
-			/*core: {
-				src: '<%= concat.bootstrap.dest %>',
-				dest: '<%= globalConfig.scripts %>/<%= pkg.name %>.min.js'
-			},*/
-			customize: {
+			js: {
 				src: '<%= concat.js.dest %>',
-				dest: '<%= globalConfig.scripts %>/app.min.js'
+				dest: '<%= globalConfig.js %>/app.min.js'
 			}
+			/*css: {
+				src: [
+					'<%= globalConfig.src_css %>/style.css'
+				],
+				dest: '<%= globalConfig.src_css %>/style.min.css'
+			}*/
 		},
 		watch: {
 			configFiles: {
 				files: [ 'Gruntfile.js', 'config/*.js' ],
+				tasks: [
+					'concat:js'
+					, 'uglify:js'
+					, 'concat:css'
+				],
 				options: {
 					reload: true
 				}
 			},
-			scripts: {
+			js: {
 				files: [
-					'<%= globalConfig.srcjs %>*.js'
+					'<%= globalConfig.src_js %>/*.js'
 				],
-				tasks: ['concat', 'uglify'],
-					options: {
-						spawn: false,
-					}
+				tasks: [
+					'concat:js'
+					, 'uglify:js'
+				],
+				options: {
+					spawn: false,
+				}
 			},
 			css: {
-				files: [ '<%= globalConfig.styles %>/style.css' ],
-				tasks: [ 'cssmin', 'concat' ],
+				files: [ '<%= globalConfig.src_css %>/style.css' ],
+				tasks: [ 'cssmin', 'concat:css' ],
 				options: {
 					spawn: false,
 				}
