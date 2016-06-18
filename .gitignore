@@ -2,6 +2,12 @@
 .DS_Store
 Desktop.ini
 
+# Folders
+admin/
+
+# Web Storm
+.idea/
+
 #Sublime
 mkh10.sublime-project
 mkh10.sublime-workspace
