@@ -4,9 +4,9 @@
  * or Confirm if absents
  * kosiakMD@yandex.ua
  * Anton Kosiak <kosiakMD [at] yandex.ua>
- */ 
+ */
 "use strict"
-// 
+//
 window.applicationCache.addEventListener('updateready', function(e) {
 	if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
 		window.applicationCache.swapCache();
@@ -17,11 +17,8 @@ window.applicationCache.addEventListener('updateready', function(e) {
 			$modal.find(".btn-confrim").click(function(){
 				window.location.reload();
 			});
-		}
-		else{
-			if (confirm('Доступна нова версія Веб-додатку. Завантажити?')) {
-				window.location.reload();
-			}
+		}else if (confirm('Доступна нова версія Веб-додатку. Завантажити?')) {
+			window.location.reload();
 		}
 	}
 }, false);
