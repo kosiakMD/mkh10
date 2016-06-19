@@ -181,7 +181,11 @@ module.exports = function(grunt) {
 					// Counter for Menu
 						// '<%= globalConfig.srcjs %>counter.js',
 					// ICD
-						'<%= globalConfig.src_js %>/icd.js'
+						'<%= globalConfig.src_js %>/icd.js',
+					// initRouter
+						'<%= globalConfig.src_js %>/iniRouter.js',
+					// catalogView
+						'<%= globalConfig.src_js %>/catalogView.js'
 				],
 				dest: '<%= globalConfig.js %>/app.min.js'
 			}

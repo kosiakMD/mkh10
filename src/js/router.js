@@ -2,8 +2,10 @@
  * Router
  * kosiakMD@yandex.ua
  * Anton Kosiak <kosiakMD [at] yandex.ua>
- */ 
+ */
 "use strict"
+// Dependency
+if(!$http) throw new Error("$http Module is Required");
 //
 function __simpleRouter(){
 	var self = this;
@@ -29,6 +31,7 @@ function __simpleRouter(){
 			if(obj && typeof obj === "object"){
 				this.add(obj);
 			}
+			if(jQuery.isEmptyObject(core.roads)) throw new Error("Router is Empty")
 			// document.onreadystatechange = function () {
 			// $(document).ready(function () {
 			var path = location.pathname.slice();
@@ -39,6 +42,7 @@ function __simpleRouter(){
 			// }
 		},
 		controller: function(path, callback){
+			if(jQuery.isEmptyObject(core.roads)) return
 			if(typeof path === "string" && callback){
 				if(typeof callback === "function"){
 					if(path === ""){
@@ -55,17 +59,14 @@ function __simpleRouter(){
 				}
 				return false;
 			}else{
-				// if(typeof core.roads[path].controller === "function"){
-				// 	core.roads[path].controller();
-				// }
-				Array.isArray(this.roads[path].controller) && core.roads[path].controller.forEach(function(func){
+				core.roads[path].controller && Array.isArray(this.roads[path].controller) && core.roads[path].controller.forEach(function(func){
 					func();
 				})
 				return true;
 			}
 			return false;
 		},
-		url2obj: function(hash){ // обработка хеша
+		url2obj: function(hash){ // hash handler
 			var action
 			if( hash.substr(0,2) == '#/' ) action = hash.substr(2); else action = hash;
 			var properties = action.split( /&/ );
@@ -74,9 +75,9 @@ function __simpleRouter(){
 				var p = this.split( /=/ );
 				obj[ p[0] ] = p[1];
 			});
-			return obj; // объект параметров запроса
+			return obj; // request preferences object
 		},
-		loadPage: function(page, path){ // подгрузка контента
+		loadPage: function(page, path){ // content loading
 			console.log("loadPage " + page );
 			var obj = this.url2obj(page);
 			var $content = $("#view_content");
@@ -97,24 +98,56 @@ function __simpleRouter(){
 	};
 
 	return {
+
 		'init' : function(args) {
 			return core.init(args);
 		},
+
+		'reset' : function () {
+			core.roads = {};
+			return this;
+		},
+
+		'get' : function() {
+			return core.roads;
+		},
+
 		'path' : function(args) {
+			var selfi = this;
 			return {
 				'add' : function(args){
-					return core.add(args, core);
+					core.add(args, core);
+					return selfi;
 				},
 				'delete' : function(args){
-					return core.delete(args);
+					core.delete(args);
+					return selfi;
 				},
 				'gate' : function(args){
-					return core.gate(args);
+					core.gate(args);
+					return selfi;
 				}
 			}
 		},
+
 		'controller' : function(path, callback) {
-			return core.controller(path, callback);
+			var selfi = this;
+			if(typeof path === "string" && callback && typeof callback === "function"){
+				core.controller(path, callback);
+				return selfi;
+			}else{
+				return {
+					'add' : function (path) {
+
+					},
+					'delete' : function (arg) {
+						if(!arg) throw new Error("No Path for Deleting");
+						delete core.roads[arg].controller;
+						return selfi;
+					}
+				}
+			}
 		}
+
 	}
 };

@@ -5,7 +5,9 @@
  * https://github.com/kosiakMD/-http.defered
  */ 
 "use strict"
-// 
+//
+// Dependency
+if(!jQuery) throw new Error("jQuery library is Required");
 // Self AJAX XHR with Promise Defer - faster then jQuery Ajax in 1.9-1.5
 function $http(url){
  

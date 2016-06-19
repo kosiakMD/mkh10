@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#VERSION 0.1.6.0
+#VERSION 0.1.6.1
 
 #Cache files:
 /index.html
@@ -10,7 +10,7 @@ CACHE MANIFEST
 /public/css/all.min.css
 
 
-/public/js/app.min.js
+#/public/js/app.min.js
 
 
 /public/img/favicon.ico

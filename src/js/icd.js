@@ -23,7 +23,7 @@
 //-------------- HANDLER
 function APP_INIT(){
 	console.log("\n| APP_INIT");
-	initRouter();
+	// initRouter();
 	console.log("online^: ", online())
 	online() 
 		? ONLINE_MODE() 
@@ -526,55 +526,6 @@ function startCatalog(animation){
 		? $('#catalog').animate({"left" : -APP.width1 * APP.stepCatalog})
 		: $('#catalog').css("left",-APP.width1 * APP.stepCatalog);
 };
-function catalogView( type ){
-	// if type and not default #tabs width
-	if(!type && type !== 0){
-		// if storage and Stteing is in
-		// read from localStorage Setting
-		console.log("catalogView EMPTY", type);
-		if( storage && storage.catalogView ){
-			if(storage.catalogView == 1 ) return;
-			type = +storage.catalogView;
-			// write the Setting into data for "toggleFunc" order
-			$("#tabs").data('toggleStatus', type - 1);
-			console.log("not 1")
-		}else{
-			return false;
-		}
-	}
-	/*( !type && type !== 1 && type !== 0) && ( 
-		console.log("catalogView EMPTY", type),
-		// read from localStorage Settings
-		type = +storage.catalogView, 
-		// write the Setting into data for "toggleFunc" order
-		$("#tabs").data('toggleStatus', type - 1),
-		// change icon for change-size if full-width (#3)
-		type === 3 && $(".resize_content").toggleClass('glyphicon-resize-full glyphicon-resize-small')
-	);*/
-	console.log("catalogView HANDLER", type);
-	var width, marginLeft;
-	switch (type){
-		case 0 : width = '', marginLeft = '';
-			break; 
-		case 2 : width = '75%', marginLeft = '12.5%';
-			break;
-		case 3 : width = screen.width, marginLeft = '0';
-			break;
-		case 1 : width = '50%', marginLeft = '25%';
-			break;
-		default: throw new Error("unReg arg for catalogView");
-			break;
-	}
-	// save Setting to localStorage if type != 0
-	// '0' only fpr default CSS
-	type && (storage.catalogView = type);
-	// unify handler
-	var action = (type === 0) ? ('css') : 'animate' ;
-	$('#tabs')[action]({
-		width: width,
-		marginLeft: marginLeft
-	}, adaptation.bind(null, true, true) );
-}
 // - Search
 function searchList(){
 	console.time("searchList");
@@ -901,72 +852,6 @@ function BD_init(){
 	ICD = parse(storage.ICD);
 	searchList();
 };
-function initRouter(){
-	console.log("#____Router Initialization");
-	window.$Router = __simpleRouter();
-	$Router.path().add({
-		"/" : "views/index.html",
-		"/about" : "views/about.html",
-		"/donate" : "views/donate.html"
-	});
-	$Router.path().add({
-		"/feedback" : "views/feedback.html"
-	});
-	$Router.controller("/", function(){
-		paint();
-		// adaptation();
-	});
-	$Router.controller("/feedback", function(){
-		$(window).trigger( 'load' );
-	});
-	$Router.controller("", function(){
-		adaptation();
-	});
-
-	$Router.init();
-
-	/*var app = angular.module( 'multiLang', ['ngRoute']);
-	app.config( function ($routeProvider, $locationProvider) {
-		$routeProvider
-			.when("/",{
-					// controller : "TranslateController",
-					templateUrl : "views/index.html"
-			})
-			.when("/about",{
-					// controller : "TranslateController",
-					templateUrl : "views/about.html"
-			})
-			.when("/donate",{
-					// controller : "TranslateController",
-					templateUrl : "views/donate.html"
-			})
-			.when("/feedback",{
-					//controller : "TranslateController",
-					templateUrl : "views/feedback.html"
-			})
-			.otherwise({redirectTo : "/"});
-		$locationProvider.html5Mode({
-			enabled: true,
-			requireBase: false,
-			rewriteLinks : false//true
-		})//.hashPrefix('#');
-	});
-	app.controller('TranslateController', function ml( $scope*//*, $routeParams*//*){
-		//ml var $appElement = $('[ng-controller="TranslateController"]'),
-				$scope = angular.element( $appElement ).scope();
-		$scope.ml = Lang.text;*/
-		/*$scope.$on('$viewContentLoaded', function() {
-			console.log("viewContentLoaded")
-			paint();
-			adaptation();
-			$(window).trigger( 'load' );
-		});
-		$scope.$on('$routeChangeSuccess', function () {
-			console.log("routeChangeSuccess");
-			menu_href();
-		})
-	});*/
-};
 function routerEnd(){
 	//ml var deferred = new $.Deferred( function() {//Promise
 	//ml 	var $appElement = $('[ng-controller="TranslateController"]'),
@@ -1196,31 +1081,7 @@ $('body')
 				return false;
 			}
 		});
-	})
-//ON click, .resize_content
-	.on("click", ".resize_content", function(){
-		$('#tabs').toggleFunc([
-			function(){
-				catalogView(2);
-				// $(this).toggleClass('col-md-6 col-md-offset-3');
-			},
-			function(){
-				catalogView(3);
-				$(".resize_content").toggleClass('glyphicon-resize-full glyphicon-resize-small');
-			},
-			function(){
-				catalogView(1);
-				$(".resize_content").toggleClass('glyphicon-resize-full glyphicon-resize-small');
-				// $(this).toggleClass('col-md-6 col-md-offset-3');
-			}],
-			function(){
-				// console.log('always')
-				// slideCatalog();
-				// $('#tabs').data('toggleStatus') === 2
-			}
-		);
-		// $(".resize_content").toggleClass('glyphicon-resize-full glyphicon-resize-small');
-});
+	});
 
 // -------------- BEGIN
 ;(function(){
@@ -1241,10 +1102,6 @@ $(document).ready(function(){
 		adaptation(true);
 		// slideCatalog(/*APP.stepCatalog*/);
 		Width2();
-	});
-	$( window ).on('orientationchange', function(e, data){
-		console.log('orientationchange',e.from, '--->', e.to)
-		e.to === "portrait" ? catalogView(0) : catalogView();
 	});
 	$( window ).on('orientationportrait', function(){
 
@@ -1277,7 +1134,6 @@ window.onload = function(){
 	// as default bootstrap grid
 	// storage = undefined; console.log(storage); //-- check storage and saved Setting inside
 	/*!!storage && storage.catalogView && */
-	($.getOrientation() === "landscape") && catalogView();
 	if(checkStorage() && storage.readNews !== "true"){
 		$("#myModal2").modal("show");
 	}
