@@ -164,9 +164,12 @@ module.exports = function(grunt) {
 						'<%= globalConfig.bower %>/jasny-bootstrap/dist/js/jasny-bootstrap.min.js',
 					// All My JS Files
 					// '<%= globalConfig.srcjs %>*.js'
+					//
 					// Concat My JS files
 					// Commons
 						'<%= globalConfig.src_js %>/commons.js',
+					// Router
+						'<%= globalConfig.src_js %>/router.js',
 					// Preloader XHR
 						'<%= globalConfig.src_js %>/preloader.js',
 					// $http Promise Deffer

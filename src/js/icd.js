@@ -901,109 +901,6 @@ function BD_init(){
 	ICD = parse(storage.ICD);
 	searchList();
 };
-// - Router
-function __simpleRouter(){
-	var self = this;
-	var core = {
-		// path: function(method){
-		roads: {},
-		delete: function(path){
-			delete this.roads[path];
-			return true;
-		},
-		add: function(obj, self){
-			for( var path in obj ){
-				core.roads[path] = { gate : obj[path] };
-			}
-			// console.log(core.roads)
-			return true;
-		// }
-		},
-		gate: function(path){
-			return core.roads[path].gate;
-		},
-		init: function(obj){
-			if(obj && typeof obj === "object"){
-				this.add(obj);
-			}
-			// document.onreadystatechange = function () {
-			// $(document).ready(function () {
-				var path = location.pathname.slice();
-				!core.roads[path] && ( window.location.href = '/' );
-				var page = core.gate(path);
-				core.loadPage(page, path);
-			// });
-			// }
-		},
-		controller: function(path, callback){
-			if(path && typeof path === "string" && callback){
-				if(typeof callback === "function"){
-					this.roads[path].controller = callback;
-					return true;
-				}
-				return false;
-			}else{
-				if(typeof core.roads[path].controller === "function"){
-					core.roads[path].controller();
-				}
-				return true;
-			}
-			return false;
-		},
-		url2obj: function(hash){ // обработка хеша
-			var action
-			if( hash.substr(0,2) == '#/' ) action = hash.substr(2); else action = hash;
-			var properties = action.split( /&/ );
-			var obj = {};
-			$.each(properties,function(){
-			var p = this.split( /=/ );
-				obj[ p[0] ] = p[1];
-			});
-			return obj; // объект параметров запроса
-		},
-		loadPage: function(page, path){ // подгрузка контента
-			console.log("loadPage " + page );
-			var obj = this.url2obj(page);
-			var $content = $("#view_content");
-			$http( page ).get( obj ).then(
-				function(data){ 
-					console.log( "Router Success");
-					$content.html(data);
-					core.controller(path);
-				},
-				function(data){ 
-					console.log( "ERROR: " + data );
-					$content.text( "ERROR: " + data);
-				}
-			).then( function(path){
-				console.log( "Router Done");
-			});
-		}
-	}
-
-	return {
-		'init' : function(args) {
-			return core.init(args);
-		},
-		'path' : function(args) {
-			return {
-				'add' : function(args){
-					return core.add(args, core);
-				},
-				'delete' : function(args){
-					return core.delete(args);
-				},
-				'gate' : function(args){
-					return core.gate(args);
-				}
-			}
-		},
-		'controller' : function(path, callback) {
-			return core.controller(path, callback);
-		}
-	}
-};
-
 function initRouter(){
 	console.log("#____Router Initialization");
 	window.$Router = __simpleRouter();
@@ -1022,6 +919,10 @@ function initRouter(){
 	$Router.controller("/feedback", function(){
 		$(window).trigger( 'load' );
 	});
+	$Router.controller("", function(){
+		adaptation();
+	});
+
 	$Router.init();
 
 	/*var app = angular.module( 'multiLang', ['ngRoute']);

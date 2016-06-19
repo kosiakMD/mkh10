@@ -1,16 +1,16 @@
 CACHE MANIFEST
-#VERSION 0.1.5.9
+#VERSION 0.1.6.0
 
 #Cache files:
-# /index.html
-#/views/index.html
+/index.html
+/views/index.html
 /views/donate.html
 /views/about.html
 
-#/public/css/all.min.css
+/public/css/all.min.css
 
 
-#/public/js/app.min.js
+/public/js/app.min.js
 
 
 /public/img/favicon.ico

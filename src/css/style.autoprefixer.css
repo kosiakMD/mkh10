@@ -7,7 +7,17 @@ body{
 	overflow-x: hidden;
 	background: #778392;
 }
+	/*for Safari*//*
+	.navbar-header{
+		display: flex; 
+	}
+	.navbar-toggle{
+		float: right;
+	}*/
 .row-offcanvas{
+	margin-top: 60px;
+}
+#view_content{
 	margin-top: 60px;
 }
 #catalog-wrapper{
@@ -105,7 +115,6 @@ body{
 		cursor: pointer;
 	}
 	#selectSearchSubmit{
-		float:;
 		//height: 40px;
 		cursor: pointer;
 		//margin: 5px 0;
@@ -282,3 +291,31 @@ a>: hover{opacity: 0.7}
 .btn-primary, .btn-info, .btn-success, .btn-warning, .btn-danger,
 .btn-primary:hover, .btn-info:hover, .btn-success:hover, .btn-warning:hover, .btn-danger:hover
 {background-image: none;}
+
+/*Jasnu bootstrap menu*/
+.navmenu.navmenu-inverse.offcanvas{
+	background-color: #446E9B;
+	border-color: #080808;
+	width: 85%;
+}
+.navmenu-inverse .navmenu-nav>li>a,
+.navbar-inverse .navbar-offcanvas .navmenu-nav>li>a {
+	color: #FFF;
+}
+	.navmenu-inverse .navmenu-nav>.active>a{
+		color: #FFF;
+		background-color: #345578;
+	}
+.navmenu-inverse .navmenu-nav>.open>a,
+.navmenu-inverse .navmenu-nav>.open>a:hover{
+	background-color: #345578;
+	color: #fff;
+}
+	.navmenu-inverse .navmenu-nav.dropdown-menu{
+		 background-color: #345578;
+	}
+
+
+
+
+
