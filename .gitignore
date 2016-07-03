@@ -40,3 +40,5 @@ node_modules/
 # cmd/bat
 *.cmd
 *.bat
+public/js/trash/
+src/fonts/
