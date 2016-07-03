@@ -169,13 +169,13 @@ module.exports = function(grunt) {
 					// Commons
 						'<%= globalConfig.src_js %>/commons.js',
 					// Router
-						'<%= globalConfig.src_js %>/router.js',
+						'<%= globalConfig.src_js %>/router.js', // Web
 					// Preloader XHR
-						'<%= globalConfig.src_js %>/preloader.js',
+						'<%= globalConfig.src_js %>/preloader.js', // Web
 					// $http Promise Deffer
 						'<%= globalConfig.src_js %>/$http.js',
 					// Debugger
-						'<%= globalConfig.src_js %>/debugger.js',
+						'<%= globalConfig.src_js %>/debugger.js', // ALL
 					// App Cache Update
 						'<%= globalConfig.src_js %>/appCacheUpdate.js',
 					// Counter for Menu
@@ -183,11 +183,11 @@ module.exports = function(grunt) {
 					// ICD
 						'<%= globalConfig.src_js %>/icd.js',
 					// initRouter
-						'<%= globalConfig.src_js %>/iniRouter.js',
+						'<%= globalConfig.src_js %>/iniRouter.js', // Web
 					// catalogView
-						'<%= globalConfig.src_js %>/catalogView.js'
+						'<%= globalConfig.src_js %>/catalogViewMode.js' // Web and Desktop
 				],
-				dest: '<%= globalConfig.js %>/app.min.js'
+				dest: '<%= globalConfig.js %>/app.js'
 			}
 		},
 		// Uglify - make code UnReadable

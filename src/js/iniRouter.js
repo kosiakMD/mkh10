@@ -22,7 +22,10 @@
     }).controller("/feedback", function(){
         $(window).trigger( 'load' );
     }).controller("", function(){
-        adaptation();
+        // adaptation();
+        $(document).ready(function(){
+            adaptation()
+        });
     });
 
     // $Router.controller().delete("/feedback")
@@ -30,6 +33,7 @@
     //     $(window).trigger( 'load' );
     // });
     // console.log("zzzzzzz",$Router.get())
+    console.log("Router INIT()");
     $Router.init();
     // $Router.reset();
 

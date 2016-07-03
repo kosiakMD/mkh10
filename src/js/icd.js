@@ -3,10 +3,10 @@
  * (c) 2015 МКХ 10 - http://mkh10.com.ua
  * Anton Kosiak <keleborn.mail [at] gmail.com>
  * The library ICD of World Health Organization not under the MIT license :
- * https://who.com 
+ * https://who.com
  */
 "use strict"
-// 
+//
 
 //-------------- VARS
 ;var APP = {
@@ -19,25 +19,25 @@
 	//ml Lang = {},
 	ICD = {},
 	classes = [], blocks = [], diagnoses = [], nosologies = [];//for Counter of BD
-// 
+//
 //-------------- HANDLER
 function APP_INIT(){
 	console.log("\n| APP_INIT");
 	// initRouter();
 	console.log("online^: ", online())
-	online() 
-		? ONLINE_MODE() 
+	online()
+		? ONLINE_MODE()
 		: OFFLINE_MODE()
-	/*online 
+	/*online
 		? ONLINE_MODE(
-			checkStorage 
+			checkStorage
 				? STORAGE_MODE(
 					!storage.ICD
-						? SECOND_BOOT_MODE() 
+						? SECOND_BOOT_MODE()
 						: FIRST_BOOT_MODE()
-				) 
+				)
 				: NO_STORAGE_MODE()
-		) 
+		)
 		: OFFLINE_MODE()*/
 };
 //-------------- MODES
@@ -84,7 +84,7 @@ function FIRST_BOOT_MODE(update){
 			// $modal.find("#loadDismiss").click(function(){
 			// 	paint();
 			// });
-			$modal.find("#loadButton").click(function(){//if "OK" (Download) button clicked 
+			$modal.find("#loadButton").click(function(){//if "OK" (Download) button clicked
 				console.log(newLang, newDB);
 				preloaderXHR.start();
 				if(newLang && !newDB){//if update only Lang available MODAL
@@ -133,7 +133,7 @@ function SECOND_BOOT_MODE(){
 		//translate();
 		//paint();
 		var newDB = false,
-				$modal = $('#myModal'),
+			$modal = $('#myModal'),
 		//get current ICD data
 			myVersion = ICD.version;
 		// log(version.ICD[myLang].version, myVersion)
@@ -145,8 +145,8 @@ function SECOND_BOOT_MODE(){
 		};
 		newDB && function(){//if DB update is available SHOW MODAL
 			$modal.modal("show");
-			$modal.find("#loadButton").click(function(){//if "OK" (Download) button clicked 
-				console.log(newDB);
+			$modal.find("#loadButton").click(function(){//if "OK" (Download) button clicked
+				console.log("Start Loading New DB: ",newDB);
 				preloaderXHR.start();
 				loadDB()
 					.then(function(){
@@ -167,7 +167,7 @@ function SECOND_BOOT_MODE(){
 function STORAGE_MODE(){
 	console.log("\n|---> STORAGE_MODE\n");
 	storage.version
-		? SECOND_BOOT_MODE() 
+		? SECOND_BOOT_MODE()
 		: FIRST_BOOT_MODE();
 };
 function NO_STORAGE_MODE(){
@@ -177,8 +177,8 @@ function NO_STORAGE_MODE(){
 };
 function ONLINE_MODE(){
 	console.log("\n| ONLINE_MODE\n")
-	checkStorage 
-		? STORAGE_MODE() 
+	checkStorage
+		? STORAGE_MODE()
 		: NO_STORAGE_MODE()
 	/*if (checkStorage){
 		STORAGE_MODE();
@@ -196,7 +196,7 @@ function OFFLINE_MODE(){
 		adaptation();
 		preloaderXHR.end();
 	});
-}; 
+};
 //-------------- Functions
 function menu_href(){
 	// var href = location.href.split("#");
@@ -276,10 +276,11 @@ function Width3(){
 };
 function adaptation(slide, width) {
 	console.log("adaptation", slide);
-	var h = $("#top_menu").height();
+	var topm_menu_height = $("#top_menu").height();
+	console.log(" | topm_menu_height: ",topm_menu_height)
 	$("#view_content").css({
-		"margin-top" : h + 10,
-		'min-height' : $(window).height() - $("footer").outerHeight() - h - 10 
+		"margin-top" : topm_menu_height + 10,
+		'min-height' : $(window).height() - $("footer").outerHeight() - topm_menu_height - 10
 	});
 	slide && slideCatalog();
 	width && Width2() && Width3();
@@ -382,7 +383,7 @@ function formCatalog(list, element, ind, letters){
 					.replace(/[А]([0-9]{2})/,"A$1")//delete Cyrilic letters
 					.replace(/[В]([0-9]{2})/,"B$1")
 					.replace(/[Е]([0-9]{2})/,"E$1")
-					.replace(/(\([A-Z][0-9]{2}(\.[0-9]{1}){0,}(\+|\*)\))/, 
+					.replace(/(\([A-Z][0-9]{2}(\.[0-9]{1}){0,}(\+|\*)\))/,
 						"<button class='iLink btn-sm btn-primary'><b>$1</b></button>");//add iLink
 				var li = $('<li><b>' + list[n].l + list[n].n1 + '.' + list[n].n2 + '</b> ' + text + '</li>');
 				li.attr({
@@ -532,7 +533,7 @@ function searchList(){
 	var min = 0,
 			max = ICD.diagnoses.length;
 	ICD.concat = [];
-	
+
 	//concat Diagnoses && Nosologies
 	for(var k = 0; k < ICD.nosologies.length; k++){
 		ICD.concat.push( ICD.nosologies[k] );
@@ -863,7 +864,7 @@ function routerEnd(){
 	//ml });
 	//ml return deferred.promise();
 };
-// 
+//
 
 // -------------- Event handlers
 
@@ -955,7 +956,7 @@ $('body')
 //ON click, #tab_menu button
 	.on('click', '#tab_menu button', function (e) {
 		e.preventDefault()
-		if($(this).hasClass('active')) 
+		if($(this).hasClass('active'))
 			return;
 		$('#tab_menu .active').toggleClass('active')
 		$(this).toggleClass('active');
@@ -1034,13 +1035,13 @@ $('body')
 				}else{
 					el.click();
 				}
-				
+
 				// Block
 				$("#catalog2 .element").each(function(){
 					var el = $(this);
 					if( letter < el.attr("l2") || letter <= el.attr("l2") && n <= el.attr("n2") ){
 						el.click();
-						
+
 						// Nosology
 						$("#catalog3 .element").each(function(){
 							var el = $(this);
@@ -1048,7 +1049,7 @@ $('body')
 								// select element or open it if \.[0-9]{1,2}
 								if( text[1] ){
 									el.click();
-									
+
 									// Diagnosis
 									$("#catalog4 .element").each(function(){
 										var el = $(this);
@@ -1091,7 +1092,7 @@ $('body')
 
 // -------------- Document Ready
 $(document).ready(function(){
-	// document.addEventListener("DOMContentLoaded", function(event) { 
+	// document.addEventListener("DOMContentLoaded", function(event) {
 	log("------ Document Ready");
 	menu_href();
 	$('[data-toggle="tooltip"]').tooltip();
@@ -1119,7 +1120,7 @@ $(document).ready(function(){
 	//ml var $appElement = $('[ng-app="multiLang"]'),
 	//ml 			$scope = angular.element( $appElement ).scope();
 	//ml 	mlDefine($scope);
-	//ml 	// 
+	//ml 	//
 	//ml 	$scope.$on('$viewContentLoaded', function() {
 	//ml 		paint();
 	//ml 	});
@@ -1138,9 +1139,9 @@ window.onload = function(){
 		$("#myModal2").modal("show");
 	}
 	//formCatalog.call($('#catalog1'), ICD.classes, 'class', 0)
-	
+
 	//setTimeout(formCatalog.call($('#catalog1'), ICD.classes, 'class', 0), 0)
 	//Width1();
 	//Width2();
 	//liveSearch();
-}; 
+};

@@ -5,7 +5,7 @@
  */ 
 "use strict"
 // 
-;var console_info = [ "%c МКХ-10 mkh10.com.ua %c Developed by KEL %c https://fb.com/kosiakMD %c"+
+;var console_info = [ "%c МКХ-10 mkh10.com.ua %c Developed by KosiakMD %c https://fb.com/kosiakMD %c"+
 	'\nhttp://vk.com/kosiakMD',
 	"background: #000000; color: #7EBE45",
 	"background: #000000; color: #ffffff",

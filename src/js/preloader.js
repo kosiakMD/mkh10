@@ -8,8 +8,7 @@
 var preloaderXHR;
 if (!preloaderXHR) {
 	preloaderXHR = {}
-}
-else{
+}else{
 	throw new Error("\"preloaderXHR\" is Ready Used");
 }
 preloaderXHR = {

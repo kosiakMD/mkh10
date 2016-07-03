@@ -81,18 +81,19 @@ function __simpleRouter(){
 			console.log("loadPage " + page );
 			var obj = this.url2obj(page);
 			var $content = $("#view_content");
-			$http( page ).get( obj ).then(
-				function(data){
-					console.log( "Router Success");
-					$content.html(data);
-					core.controller(path);
-				},
-				function(data){
-					console.log( "ERROR: " + data );
-					$content.text( "ERROR: " + data);
-				}
-			).then( function(path){
-				console.log( "Router Done");
+			$http( page ).get( obj )
+				.then(
+					function(data){
+						console.log( "Router Success");
+						$content.html(data);
+						core.controller(path);
+					},
+					function(data){
+						console.log( "ERROR: " + data );
+						$content.text( "ERROR: " + data);
+					}
+				).then( function(path){
+					console.log( "Router Done");
 			});
 		}
 	};
