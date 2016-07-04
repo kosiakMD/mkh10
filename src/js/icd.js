@@ -9,7 +9,7 @@
 //
 
 //-------------- VARS
-;var $_SERVER = location.href;//'https://mkh10.com.ua/';
+;var $_SERVER = location.origin + '/';//'https://mkh10.com.ua/';
 	APP = {
 		width1 : 0,
 		width2 : 0,
