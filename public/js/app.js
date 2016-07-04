@@ -2464,7 +2464,8 @@ window.applicationCache.addEventListener('updateready', function(e) {
 //
 
 //-------------- VARS
-;var APP = {
+;var $_SERVER = 'https://mkh10.com.ua';
+	APP = {
 		width1 : 0,
 		width2 : 0,
 		stepCatalog : 0
@@ -2505,7 +2506,7 @@ function FIRST_BOOT_MODE(update){
 	BD_init();
 	//paint();
 	$.when(
-		load("public/version", "version")
+		load($_SERVER + "public/version", "version")
 	).then(function(){
 		//translate();
 		//paint();
@@ -2583,7 +2584,7 @@ function SECOND_BOOT_MODE(){
 	BD_init();
 	//paint();
 	$.when(
-		load("public/version", "version")
+		load($_SERVER + 'public/version', 'version')
 	).then(function(){
 		//translate();
 		//paint();
@@ -3266,19 +3267,19 @@ function load(file, name, method){
 };
 function loadLang(lang){
 	//ml var abr = lang || getLang();
-	//ml return load("public/lang/" + abr, "Lang", "post")//.then(translate)
+	//ml return load($_SERVER + "public/lang/" + abr, "Lang", "post")//.then(translate)
 	//ml .then(function(){
 	//ml 	save("Lang", Lang);
 	//ml })
 }
 function loadDB(){
 	return $.when(
-		/*load("public/db/count", "ICD.count"),
-		load("public/db/classes", "ICD.classes"),
-		load("public/db/blocks", "ICD.blocks"),
-		load("public/db/nosologies", "ICD.nosologies"),
-		load("public/db/diagnoses", "ICD.diagnoses")*/
-		load('public/db/db', 'ICD')
+		/*load($_SERVER + "public/db/count", "ICD.count"),
+		load($_SERVER + "public/db/classes", "ICD.classes"),
+		load($_SERVER + "public/db/blocks", "ICD.blocks"),
+		load($_SERVER + "public/db/nosologies", "ICD.nosologies"),
+		load($_SERVER + "public/db/diagnoses", "ICD.diagnoses")*/
+		load($_SERVER + 'public/db/db', 'ICD')
 	).then(function (){
 		// ICD = version.ICD["uk"/*getLang()*/];
 		for (var prop in version.ICD["uk"]) {
@@ -3292,7 +3293,7 @@ function loadDB(){
 	});
 };
 function loadAll(){
-	load("public/version", "version")
+	load($_SERVER + 'public/version', 'version')
 	.then(function(){
 		save("version", version);
 		//ml loadLang()
@@ -3458,7 +3459,7 @@ $('body')
 	//ml 	preloaderXHR.start();
 	//ml 	var lang = $(this).data("lang");
 	//ml 	console.log(lang);
-	//ml 	//load("public/lang/" + lang, "Lang", "post")
+	//ml 	//load($_SERVER + "public/lang/" + lang, "Lang", "post")
 	//ml 	loadLang(lang)
 	//ml 	.then(function(){
 	//ml 		translate();
