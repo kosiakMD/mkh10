@@ -3724,7 +3724,7 @@ function catalogView( type ){
             break;
         case 2 : width = '75%', marginLeft = '12.5%';
             break;
-        case 3 : width = screen.width, marginLeft = '0';
+        case 3 : width = '100%', marginLeft = '0%';//screen.width, marginLeft = '0';
             break;
         case 1 : width = '50%', marginLeft = '25%';
             break;
