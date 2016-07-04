@@ -2466,7 +2466,7 @@ window.applicationCache.addEventListener('updateready', function(e) {
 //
 
 //-------------- VARS
-;var $_SERVER = 'https://mkh10.com.ua';
+;var $_SERVER = location.href;//'https://mkh10.com.ua/';
 	APP = {
 		width1 : 0,
 		width2 : 0,
