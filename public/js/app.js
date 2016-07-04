@@ -2403,12 +2403,19 @@ function $http(url){
 	document.getElementsByTagName('body')[0].appendChild(div);
 	var logger = document.getElementById( Debugger.id );
 	// console.log
-	Debugger.on && (console.log = function (message){
-		if(typeof message == 'object') {
-			logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(message) : message) + '<br>';
-		}else{
-			logger.innerHTML += message + '<br>';
+	Debugger.on && (console.log = function (){
+		var message = '';
+		for (var i = 0; i < arguments.length; i++) {
+			i && (message += ', ');
+			if(typeof message == 'object') {
+				message += (JSON && JSON.stringify ? JSON.stringify(arguments[i]) : arguments[i]);
+			}else{
+				message += arguments[i];
+			}
 		}
+		message = message.replace(/(undefined)/i,'<span style="color:red">$1</span>');
+		message = message.replace(/(true|false)/i,'<span style="color:blue">$1</span>');
+		logger.innerHTML += message + '<br>';
 	});
 	// console.time
 	Debugger.on && (console.time = function (name){
