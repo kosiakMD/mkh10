@@ -2388,6 +2388,7 @@ function $http(url){
 		maxHeight: '400px',
 		overflow: 'auto',
 		padding: '10px',
+		whiteSpace: 'pre',
 		background: 'whitesmoke',
 		color: 'black',
 		timerTextColor: 'darkred' //color of timers' texts
@@ -2397,6 +2398,7 @@ function $http(url){
 	div.style.maxHeight = Debugger.maxHeight;
 	div.style.overflow = Debugger.overflow;
 	div.style.padding = Debugger.padding;
+	div.style.whiteSpace = Debugger.whiteSpace;
 	div.style.background = Debugger.background;
 	div.style.color = Debugger.color;
 	// Create Debugger DIV
