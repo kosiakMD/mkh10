@@ -40,3 +40,10 @@ node_modules/
 # cmd/bat
 *.cmd
 *.bat
+ 
+# PUBLIC 
+public/ 
+ 
+# Others non-used 
+public/js/trash/ 
+src/fonts/ 
