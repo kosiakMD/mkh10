@@ -1,5 +1,9 @@
 CACHE MANIFEST
+<<<<<<< HEAD
 #VERSION 0.1.6.6
+=======
+#VERSION 0.1.7.0
+>>>>>>> views
 
 #Cache files:
 /index.html

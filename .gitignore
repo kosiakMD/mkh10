@@ -40,6 +40,7 @@ node_modules/
 # cmd/bat
 *.cmd
 *.bat
+<<<<<<< HEAD
 
 # PUBLIC
 public/
@@ -47,3 +48,12 @@ public/
 # Others non-used
 public/js/trash/
 src/fonts/
+=======
+ 
+# PUBLIC 
+public/ 
+ 
+# Others non-used 
+public/js/trash/ 
+src/fonts/ 
+>>>>>>> views
