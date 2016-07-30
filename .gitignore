@@ -42,3 +42,10 @@ node_modules/
 *.bat
 public/js/trash/
 src/fonts/
+
+
+# Trash
+feedback.html
+g.crx
+g.pem
+npm-debug.log
