@@ -48,6 +48,7 @@ public/
 # Others non-used
 public/js/trash/
 src/fonts/
+<<<<<<< HEAD
 =======
  
 # PUBLIC 
@@ -57,3 +58,12 @@ public/
 public/js/trash/ 
 src/fonts/ 
 >>>>>>> views
+=======
+
+
+# Trash
+feedback.html
+g.crx
+g.pem
+npm-debug.log
+>>>>>>> icd
