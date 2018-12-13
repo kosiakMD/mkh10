@@ -16,19 +16,7 @@ mkh10.sublime-workspace
 ._*
 Thumbs.db
 
-# Files that might appear on external disks
-.Spotlight-V100
-.Trashes
-
-# Compiled Python files
-*.pyc
-
-# Compiled C++ files
-*.out
-
 # Application specific files
-venv
-node_modules
 .sass-cache
 
 # Bower components
@@ -37,33 +25,11 @@ bower_components/
 # NPM components: grunt etc.
 node_modules/
 
-# cmd/bat
-*.cmd
-*.bat
-<<<<<<< HEAD
-
 # PUBLIC
-public/
-
-# Others non-used
-public/js/trash/
-src/fonts/
-<<<<<<< HEAD
-=======
- 
-# PUBLIC 
-public/ 
- 
-# Others non-used 
-public/js/trash/ 
-src/fonts/ 
->>>>>>> views
-=======
-
+dist/public
 
 # Trash
 feedback.html
 g.crx
 g.pem
 npm-debug.log
->>>>>>> icd

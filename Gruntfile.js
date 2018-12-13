@@ -1,32 +1,34 @@
 'use strict';
  
 module.exports = function(grunt) {
- 
+
+	var dist = 'dist/';
+	var publicPath = dist + 'public/';
 	var globalConfig = {
-		version : '1.6.0',
-		bower : 'bower_components',
-		src : 'src',
-		public : 'public',
-		src_img : 'src/img',
-		img : 'public/img',
-		src_db : 'src/db',
-		db : 'public/db',
-		src_css : 'src/css',
-		css : 'public/css',
-		fonts : 'public/fonts',
-		src_js : 'src/js',
-		js : 'public/js',
-		jqui : 'bower_components/jquery-ui/ui/minified',
-		bsjs : 'bower_components/bootstrap/js'
+		version: '1.6.0',
+		bower: 'bower_components',
+		src: 'src',
+		public: publicPath,
+		src_img: 'src/img',
+		img: publicPath + 'img',
+		src_db: 'src/db',
+		db: publicPath + 'db',
+		src_css: 'src/css',
+		css: publicPath + 'css',
+		fonts: publicPath + 'fonts',
+		src_js: 'src/js',
+		js: publicPath + 'js',
+		jqui: 'bower_components/jquery-ui/ui/minified',
+		bsjs: 'bower_components/bootstrap/js'
 	};
 
-	var saveLicense = require('uglify-save-license');
-	var mozjpeg = require('imagemin-mozjpeg');
+	// var saveLicense = require('uglify-save-license');
+	// var mozjpeg = require('imagemin-mozjpeg');
 
 	grunt.initConfig({
-		globalConfig : globalConfig,
-		pkg : grunt.file.readJSON('package.json'),
-		asd : 'someText',
+		globalConfig: globalConfig,
+		pkg: grunt.file.readJSON('package.json'),
+		asd: 'someText',
 		jshint: {
 			all: ['Gruntfile.js', '<%= concat.js.dest %>' ] //'src/js/**/*.js']
 		},
@@ -39,23 +41,23 @@ module.exports = function(grunt) {
 				},
 				files: {                         // Dictionary of files 
 					// 'destination': 'source' 
-					'public/img/who.png': 'src/img/who.png',
-					'public/img/who150.png': 'src/img/who150.png',
-					'public/img/vk.png': 'src/img/vk.png',
-					'public/img/tw.png': 'src/img/tw.png',
-					'public/img/mkh.jpg': 'src/img/mkh.jpg',
-					'public/img/pay_lp.png': 'src/img/pay_lp.png',
-					'public/img/pay_pb.png': 'src/img/pay_pb.png',
-					'public/img/pay_pp.png': 'src/img/pay_pp.png',
-					'public/img/pay_wm.png': 'src/img/pay_wm.png',
-					'public/img/pay_ym.png': 'src/img/pay_ym.png',
-					'public/img/WMB.png': 'src/img/WMB.png',
-					'public/img/WME.png': 'src/img/WME.png',
-					'public/img/WMG.png': 'src/img/WMG.png',
-					'public/img/WMR.png': 'src/img/WMR.png',
-					'public/img/WMU.png': 'src/img/WMU.png',
-					'public/img/WMX.png': 'src/img/WMX.png',
-					'public/img/WMZ.png': 'src/img/WMZ.png'
+					public + 'img/who.png': 'src/img/who.png',
+					public + 'img/who150.png': 'src/img/who150.png',
+					public + 'img/vk.png': 'src/img/vk.png',
+					public + 'img/tw.png': 'src/img/tw.png',
+					public + 'img/mkh.jpg': 'src/img/mkh.jpg',
+					public + 'img/pay_lp.png': 'src/img/pay_lp.png',
+					public + 'img/pay_pb.png': 'src/img/pay_pb.png',
+					public + 'img/pay_pp.png': 'src/img/pay_pp.png',
+					public + 'img/pay_wm.png': 'src/img/pay_wm.png',
+					public + 'img/pay_ym.png': 'src/img/pay_ym.png',
+					public + 'img/WMB.png': 'src/img/WMB.png',
+					public + 'img/WME.png': 'src/img/WME.png',
+					public + 'img/WMG.png': 'src/img/WMG.png',
+					public + 'img/WMR.png': 'src/img/WMR.png',
+					public + 'img/WMU.png': 'src/img/WMU.png',
+					public + 'img/WMX.png': 'src/img/WMX.png',
+					public + 'img/WMZ.png': 'src/img/WMZ.png'
 				}
 			},*/
 			dynamic: {                         // Another target 
@@ -95,15 +97,15 @@ module.exports = function(grunt) {
 		// Concat all my files and Libs
 		concat: {
 			options: {
-				// separator : ";\n"
+				// separator: ";\n"
 			},
 			// concat JSON DataBase
 			db: {
 				// make array from 5 files of JSON objects
 				options: {
-					banner : '[',
-					separator : ',',
-					footer : ']'
+					banner: '[',
+					separator: ',',
+					footer: ']'
 				},
 				src: [ 
 					'<%= globalConfig.src_db %>/count.json ',
@@ -188,6 +190,10 @@ module.exports = function(grunt) {
 						'<%= globalConfig.src_js %>/catalogViewMode.js' // Web and Desktop
 				],
 				dest: '<%= globalConfig.js %>/app.js'
+			},
+			moveJsFiles: {
+				src: ['<%= globalConfig.src_js %>/sw.js'],
+				dest: '<%= globalConfig.js %>/sw.js'
 			}
 		},
 		// Uglify - make code UnReadable
@@ -247,7 +253,7 @@ module.exports = function(grunt) {
 					spawn: false,
 				}
 			}
-		}
+		},
 	});
 
 	// load plugn for task(s)
@@ -262,13 +268,13 @@ module.exports = function(grunt) {
  
 	// Default task(s).
 	grunt.registerTask('default', [ 
-		'cssmin'
-		// ,'min' 
-		,'concat'
-		// ,'jshint'
-		,'uglify'
-		// ,'imagemin'
-		// ,'autoprefixer'
-		 ,'watch'
+		'cssmin',
+		// 'min',
+		'concat',
+		// 'jshint',
+		'uglify',
+		// 'imagemin',
+		// 'autoprefixer',
+		 'watch',
 	]);
 };

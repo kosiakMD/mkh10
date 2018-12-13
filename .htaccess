@@ -1,27 +1,32 @@
 AddDefaultCharset UTF-8
 
+
 RewriteEngine On
 #RewriteCond %{REQUEST_FILENAME} !-f
 #RewriteRule ^([^/\.]+)$ $1.html [NC,L]
 #RewriteRule ^(.*)\.php$ $1\/? [R=301,L]
 #RewriteRule ^(.*)$ $1 [L]
-	RewriteCond %{REQUEST_FILENAME} -s [OR]
-	RewriteCond %{REQUEST_FILENAME} -l [OR]
-	RewriteCond %{REQUEST_FILENAME} -d
-	RewriteRule ^.*$ - [NC,L]
+	#RewriteCond %{REQUEST_FILENAME} -s [OR]
+	#RewriteCond %{REQUEST_FILENAME} -l [OR]
+	#RewriteCond %{REQUEST_FILENAME} -d
+	#RewriteRule ^.*$ - [NC,L]
 
 # Main:
-	RewriteRule ^(.*) /index.html [NC,L]
-	RewriteRule ^mkn10(.*) /mkn10/index.html [NC,L]
+	#RewriteRule ^(.*) index.html [NC,L]
+	#RewriteRule ^mkn10(.*) /mkn10/index.html [NC,L]
+
+	#RewriteCond !/index.html
+	#RewriteRule ^/(.*) index.html [R,L]
+	RewriteRule ^/code/(.*) /asd [R=404,L]
+	RewriteRule ^www /index.html?a=111 [L,NC,R=301]
 
 # HTTPS://
 #RewriteEngine On
 #RewriteCond %{HTTPS} off
 #RewriteRule (.*) https://%{SERVER_NAME}/%$1 [R,L]
 
-# Do not remove this line or mod_rewrite rules and search engine friendly URLs will stop working
 # Archives:
-	RewriteBase /
+	#RewriteBase /
 	AddOutputFilterByType DEFLATE text/plain
 	AddOutputFilterByType DEFLATE text/html
 	AddOutputFilterByType DEFLATE text/xml
